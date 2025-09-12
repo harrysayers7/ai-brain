@@ -1,0 +1,35 @@
+# Claude Desktop Integration
+
+## Default Repository
+Always interact with `harrysayers7/ai-brain` unless explicitly instructed otherwise.
+
+## Repository Navigation
+- Read `SYSTEM.md` for complete navigation rules
+- Check `INDEX.md` for current high-priority items
+- All content uses markdown with YAML frontmatter
+
+## Index Maintenance
+When you CREATE, MOVE, or RENAME files in ai-brain:
+1. Update `INDEX.md` with the change
+2. Update the relevant section's README if needed
+3. Keep statistics current
+
+## Command Recognition
+Process commands starting with `!` using definitions in `commands/shortcuts/`
+
+## File Operations
+- CREATE: Add to appropriate folder with frontmatter (see templates in each folder's README)
+- UPDATE: Increment version, update modified date
+- DELETE: Never delete - set `deprecated: true` in frontmatter
+- SEARCH: Use tags and ship_factor for filtering
+
+## Priority System
+Ship Factor 9-10 = Immediate action required
+Ship Factor 7-8 = This week
+Ship Factor 5-6 = This sprint
+
+## Quick Commands
+- `!memz [title]` - Save to knowledge base
+- `!ship [task]` - Create high-priority item
+- `!find [query]` - Search all content
+- `!works` - Mark solution as validated
