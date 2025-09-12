@@ -1,0 +1,73 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+.env
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.cache/
+
+# Generated indexes (if using automation)
+.brain/
+*-index.json
+*-embeddings.json
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Private/sensitive content
+private/
+*.private.md
+*-secret.md
+
+# Build outputs
+dist/
+build/
+out/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Obsidian
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.trash/
+
+# Custom
+.drafts/
+.archive/
+_deprecated/
