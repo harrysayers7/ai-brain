@@ -4,24 +4,24 @@ Model Context Protocol server configurations and connections.
 
 ## Active MCP Servers
 
-### Available Servers
-- filesystem - File system operations
-- github - GitHub integration  
-- google-drive - Google Drive access
-- google-maps - Maps and location services
-- notion - Notion workspace
-- obsidian - Obsidian vault access
-- postgres - PostgreSQL database
-- sqlite - SQLite database
-- slack - Slack workspace
-
-## Server Configurations
-
-Individual server configs in:
-- `filesystem.md`
-- `github.md`
-- `notion.md`
-- etc.
+### Core MCP Servers
+- `chrome-mcp.md` - Chrome browser automation
+- `context-7.md` - Context and fact verification
+- `dify-mcp-connector.md` - Dify workflow bridge
+- `docker.md` - Docker container management
+- `fastapi-mcp.md` - FastAPI endpoint converter
+- `fastmcp.md` - Custom MCP server builder
+- `filesystem.md` - File system operations
+- `github.md` - GitHub repository management
+- `google-drive.md` - Google Drive access
+- `graphiti.md` - Memory system integration
+- `mindsdb.md` - ML models and database
+- `n8n.md` - Workflow automation
+- `notion.md` - Notion workspace
+- `playwright.md` - Browser automation
+- `slack.md` - Slack workspace
+- `supabase.md` - Supabase database
+- `taskmaster.md` - Task management
 
 ## Connection Instructions
 
