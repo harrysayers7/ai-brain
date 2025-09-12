@@ -1,79 +1,38 @@
-# Notion Databases
+##notion databases to use
 
-Database schemas and IDs for API interaction.
+Coding Knowledge Database:
 
-## Main Databases
+Database ID: 3e82cc5a-57bd-4cb7-b85c-53b745fdc63c
+Data Source ID: 704356e7-629b-447c-958a-40c264eaa397
 
-### Second Brain Knowledge Base
-```yaml
-name: Second Brain
-id: [DATABASE_ID_HERE]
-url: https://notion.so/...
-type: knowledge_base
-schema:
-  title:
-    type: title
-    required: true
-  tags:
-    type: multi_select
-    options: [coding, architecture, decision, learning]
-  ship_factor:
-    type: number
-    min: 1
-    max: 10
-  status:
-    type: select
-    options: [active, archived, deprecated]
-  created:
-    type: date
-  modified:
-    type: date
-```
+AI-Optimized Task Management:
 
-### Projects Tracker
-```yaml
-name: Projects
-id: [DATABASE_ID_HERE]
-url: https://notion.so/...
-type: project_management
-schema:
-  name:
-    type: title
-  status:
-    type: select
-    options: [planning, active, on-hold, completed]
-  priority:
-    type: select
-    options: [high, medium, low]
-  deadline:
-    type: date
-  owner:
-    type: person
-```
+Database ID: bb278d48-954a-4c93-85b7-88bd4979f467
+Data Source ID: b105e972-10ba-4c45-b349-0105fd107cca
 
-## API Operations
+Project Tracker:
 
-### Query Database
-```javascript
-// Example query structure
-{
-  database_id: "[DATABASE_ID]",
-  filter: {
-    property: "ship_factor",
-    number: {
-      greater_than_or_equal_to: 8
-    }
-  },
-  sorts: [{
-    property: "modified",
-    direction: "descending"
-  }]
-}
-```
+Database ID: a8ab8f91-6be9-4c61-b348-f08e46b22870
+Data Source ID: a259b865-fad3-4d8e-99bc-dfe11afd709c
 
-## Common Filters
+Coding Sub Projects (Sub Projects):
 
-- High priority: `ship_factor >= 8`
-- Active items: `status = "active"`
-- Recent: `modified > last_7_days`
-- Tagged: `tags contains "architecture"`
+Database ID: af935520-b760-4cda-848c-0f1808622ad9
+Data Source ID: daa00416-0bba-48f7-ae05-5e33d3b84369
+
+AI System Components & Agents:
+
+Database ID: 7f90a1a3-dfae-47e8-ad0b-f0c18fc88cae
+Data Source ID: 3093bfe3-7cbc-4d28-bb8e-b161a620e770
+
+Cursor Rules Database:
+
+Database ID: 916aa2e8-d236-4ae5-9ab1-5f414667252c
+Data Source ID: eb2441f1-ac1d-4374-94bf-ec60e9ae61b0
+
+Additional Databases Found:
+
+Up Bank: 1f94a17b-b7f0-805c-a532-e605479700ff
+Recipe Collection: 1e44a17b-b7f0-8111-8a8e-e56aaad05ed2
+
+All these databases are interconnected through relation properties, creating a comprehensive AI-powered productivity and development management system.
