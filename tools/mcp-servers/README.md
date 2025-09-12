@@ -13,13 +13,10 @@ Model Context Protocol server configurations and connections.
 - `fastmcp.md` - Custom MCP server builder
 - `filesystem.md` - File system operations
 - `github.md` - GitHub repository management
-- `google-drive.md` - Google Drive access
 - `graphiti.md` - Memory system integration
 - `mindsdb.md` - ML models and database
 - `n8n.md` - Workflow automation
 - `notion.md` - Notion workspace
-- `playwright.md` - Browser automation
-- `slack.md` - Slack workspace
 - `supabase.md` - Supabase database
 - `taskmaster.md` - Task management
 
