@@ -1,6 +1,6 @@
 # AI Brain Index
 
-Last Updated: 2024-01-15
+Last Updated: 2025-09-12
 
 ## Quick Navigation
 
@@ -28,15 +28,12 @@ Last Updated: 2024-01-15
 
 ### 🤖 Behaviors
 
-#### Active Personas
-*AI personality configurations*
+#### Active Configurations
+*AI personality and interaction patterns*
 
-- No personas defined yet
-
-#### Operational Modes
-*Context-specific behavior sets*
-
-- No modes defined yet
+- `behaviors/claude-desktop/instructions.md` - Claude Desktop integration rules
+- `behaviors/modes/` - Context-specific behavior sets
+- `behaviors/personas/` - AI personality configurations
 
 ### ⚙️ Systems
 
@@ -52,22 +49,62 @@ Last Updated: 2024-01-15
 
 ### 🔧 Tools & Integrations
 
-#### Connected Services
+#### MCP Servers (17 configured)
+*Model Context Protocol servers*
+
+- Chrome, Context-7, Dify Connector, Docker, FastAPI, FastMCP
+- Filesystem, GitHub, Google Drive, Graphiti, MindsDB
+- n8n, Notion, Playwright, Slack, Supabase, Taskmaster
+
+#### Integrations
 *External tools and APIs*
 
-- No integrations configured yet
+- `tools/integrations/notion/` - Notion workspace configuration
+
+### 🏗️ Infrastructure
+
+#### Servers
+- `infrastructure/servers/production.md` - 134.199.159.190 (sayers-server)
+
+#### Local Environment
+- `infrastructure/local/` - Development environment setup
+
+### 📝 Commands
+
+#### Command System
+*Quick action shortcuts for LLMs*
+
+- `commands/shortcuts/` - ! commands (e.g., !memz, !ship, !find)
+- `commands/templates/` - Reusable prompt templates
+- `commands/macros/` - Multi-step command sequences
 
 ### 📊 Statistics
 
-- **Total Items**: 0
-- **Decisions**: 0
-- **Lessons**: 0
-- **Workflows**: 0
-- **Deprecated**: 0
+- **Total Sections**: 7 (knowledge, behaviors, systems, tools, infrastructure, commands, INDEX)
+- **MCP Servers**: 17
+- **Infrastructure**: 2 environments (production, local)
+- **Command Types**: 3 (shortcuts, templates, macros)
 
-### 🏷️ Tag Cloud
+### 🏷️ Active Directories
 
-*Common tags will appear here as content grows*
+```
+ai-brain/
+├── knowledge/          # Decisions, lessons, references
+├── behaviors/          # AI behavior configurations
+├── systems/            # Workflows, automations, rules
+├── tools/              # External integrations
+│   ├── integrations/   # Service configurations
+│   └── mcp-servers/    # MCP server configs
+├── infrastructure/     # Server and environment configs
+│   ├── servers/        # Production servers
+│   └── local/          # Development environment
+├── commands/           # LLM command system
+│   ├── shortcuts/      # Quick ! commands
+│   ├── templates/      # Reusable templates
+│   └── macros/         # Multi-step sequences
+├── SYSTEM.md          # Complete navigation guide
+└── INDEX.md           # This file
+```
 
 ### ⚠️ Deprecated Items
 
@@ -83,6 +120,15 @@ Last Updated: 2024-01-15
 2. **For Priority Work**: Check the High Priority section first
 3. **For Learning**: Browse Lessons Learned to avoid past mistakes
 4. **For Implementation**: Follow Workflows for step-by-step guides
+5. **For Commands**: Check `commands/shortcuts/INSTRUCTIONS.md` for ! command usage
+
+## Recent Changes (2025-09-12)
+
+- Added `behaviors/claude-desktop/` for Claude Desktop integration
+- Added `tools/mcp-servers/` with 17 MCP server configurations
+- Added `infrastructure/` with production and local environments
+- Added `commands/` system for LLM shortcuts
+- Added `tools/integrations/notion/` for Notion configuration
 
 ## Maintenance Notes
 
