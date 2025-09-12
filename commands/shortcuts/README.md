@@ -9,12 +9,6 @@ Quick commands for common LLM interactions.
 title: Command Name
 type: command
 subtype: shortcut
-tags: [command, category]
-created: 2024-01-15T10:00:00Z
-modified: 2024-01-15T10:00:00Z
-version: 1
-active: true
----
 
 # !command
 
