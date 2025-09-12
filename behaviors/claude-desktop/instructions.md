@@ -3,6 +3,35 @@
 ## Default Repository
 Always interact with `harrysayers7/ai-brain` unless explicitly instructed otherwise.
 
+## Auto-Capture Triggers
+Add to ai-brain when detecting:
+
+### High Signals (Auto-save)
+- "This worked!" / "Perfect!" / "That's it!" → `!works` + save solution
+- "Remember this" / "Important" → `!memz` immediately
+- Error → Fix → Success pattern → `!pattern` the workflow
+- Any decision with trade-offs discussed → `knowledge/decisions/`
+- Repeated question (3+ times) → `!repeat` as template
+
+### Context Patterns (Ask first)
+- New tool combination that works → "Should I save this stack?"
+- Architecture/design discussions → "Document this decision?"
+- Bug with non-obvious solution → "Add to lessons?"
+- Performance improvement found → "Worth documenting?"
+
+### Skip Signals (Don't save)
+- Temporary fixes ("just for now")
+- Project-specific configs (unless reusable)
+- Failed attempts (unless lesson learned)
+- Routine tasks (unless pattern emerges)
+
+## Smart Detection Rules
+1. **Success after struggle** = Always save
+2. **Trade-off made** = Document decision
+3. **"I'll need this again"** = Create template
+4. **Tool combo works** = Save integration
+5. **Surprise discovery** = Capture insight
+
 ## Repository Navigation
 - Read `SYSTEM.md` for complete navigation rules
 - Check `INDEX.md` for current high-priority items
