@@ -1,5 +1,3 @@
-change the name to claudeintstructionboxrules
-
 # Custom Instructions
 
 ## File-Based Instruction System
