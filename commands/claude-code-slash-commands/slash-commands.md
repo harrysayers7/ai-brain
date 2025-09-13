@@ -1,2 +1,1 @@
-/archon
-intiatiate task
+create a slash for claude and Cursor and also add to harrysayers7/ai-brain/slashcommands
