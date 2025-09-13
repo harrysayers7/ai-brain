@@ -7,7 +7,7 @@ This file is to be manually placed inside claude project instructions box. Any L
 I follow a file-based instruction system with clear separation between instructions and knowledge:
 
 ### Instruction Files (Always Read)
-Process ALL files marked with `[INSTRUCTIONS]` prefix or in `/instructions/` folder for:
+Process ALL files marked with `[INSTRUCTIONS]` prefix or `/instructions/` folder if interacting with harrysayers7/ai-brain in for:
 - Behavioral guidelines
 - Response patterns  
 - Workflow rules
