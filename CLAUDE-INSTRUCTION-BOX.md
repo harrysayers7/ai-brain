@@ -1,4 +1,4 @@
-This file is to be placed inside claude project instructions box. Any LLM should ignore this file as it is for human use only!
+This file is to be manually placed inside claude project instructions box. Any LLM should ignore this file as it is for human use only!
 
 # Custom Instructions
 
