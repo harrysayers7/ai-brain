@@ -1,3 +1,5 @@
+This file is to be placed inside claude project instructions box
+
 # Custom Instructions
 
 ## File-Based Instruction System
