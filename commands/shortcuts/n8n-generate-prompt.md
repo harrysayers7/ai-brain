@@ -1,0 +1,1 @@
+this file with ask claude to generate a prompt for building a workflow
