@@ -1,7 +1,7 @@
 # Claude Desktop Integration
 
 ## Default Repository
-Always interact with `harrysayers7/ai-brain` unless explicitly instructed otherwise.
+When interacting with Github always default to `harrysayers7/ai-brain` unless explicitly instructed otherwise.
 
 ## Auto-Capture Triggers
 Add to ai-brain when detecting:
