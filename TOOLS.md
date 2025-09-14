@@ -1,1 +1,3 @@
 this file contains a overview of my tech stack, what they do and where they are in my code base
+
+- whenever I say my server, im referring to my Ubuntu server 130...
