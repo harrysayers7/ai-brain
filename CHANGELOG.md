@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [2025-09-14T04:43:02Z]  add changelog management system with auto-update git hooks (6a7f4f0)
 - Initial AI Brain knowledge base structure
 - Comprehensive folder organization (knowledge/, behaviors/, systems/, tools/, commands/)
 - 17 MCP server configurations
