@@ -143,18 +143,48 @@ references:
 - Compatible with Obsidian, VS Code, etc.
 - Preview supported on GitHub
 
+## Changelog Management
+
+### Automatic Updates
+- **On every git commit**: Update CHANGELOG.md with changes
+- **Format**: Use [Keep a Changelog](https://keepachangelog.com/) format
+- **Timestamp**: Include ISO-8601 timestamp for each entry
+- **Categories**: Added, Changed, Deprecated, Removed, Fixed, Security
+
+### Changelog Entry Template
+```markdown
+## [Unreleased]
+
+### Added
+- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of new feature
+
+### Changed
+- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of change
+
+### Fixed
+- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of bug fix
+```
+
+### Git Hook Integration
+- Pre-commit hook: Validate changelog format
+- Post-commit hook: Auto-update changelog with commit details
+- Commit message parsing: Extract change type from conventional commits
+
 ## Maintenance Tasks
 
 ### Daily
 - Update INDEX.md with new additions
 - Check for deprecated items past expiry
+- Verify changelog is updated with recent changes
 
 ### Weekly
 - Review high ship factor items
 - Archive completed decisions
 - Update tool configurations
+- Consolidate changelog entries
 
 ### Monthly
 - Consolidate duplicate knowledge
 - Update deprecated references
 - Review and clean up tags
+- Release new version and update changelog
