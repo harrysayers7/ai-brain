@@ -71,3 +71,5 @@ out/
 .drafts/
 .archive/
 _deprecated/
+
+ai-brain/.cursor
