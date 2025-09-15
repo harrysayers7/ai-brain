@@ -1,0 +1,1 @@
+this file will have an LLM friendly map probably in code to show my server config
