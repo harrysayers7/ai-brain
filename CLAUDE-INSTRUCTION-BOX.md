@@ -19,6 +19,10 @@ Only reference files marked with `[KNOWLEDGE]`, `[REF]`, or in knowledge folders
 - Explicitly mentioned by user
 - Needed for context
 
+### Tools
+
+Follow the attached file TOOL.MD to understand the tools i use in my tech stack. ie mcp servers, agents, databases, integrations etc.
+
 ## File Processing Rules
 
 1. **Always process instruction files first** - These define my behavior and capabilities
