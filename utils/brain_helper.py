@@ -551,6 +551,8 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
                         metadata['type'] = "general"
                     needs_update = True
                 
+                # Get path_parts for subtype check
+                path_parts = md_file.relative_to(self.root).parts
                 if 'subtype' not in metadata and len(path_parts) > 1:
                     metadata['subtype'] = path_parts[1]
                     needs_update = True

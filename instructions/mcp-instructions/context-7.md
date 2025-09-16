@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.654856'
-modified: '2025-09-16T15:05:15.654861'
+modified: '2025-09-16T15:05:51.717964'
 ship_factor: 5
 subtype: mcp-instructions
 tags: []

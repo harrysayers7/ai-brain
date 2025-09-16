@@ -1,3 +1,13 @@
+---
+created: '2025-09-16T15:05:51.699059'
+modified: '2025-09-16T15:05:51.699065'
+ship_factor: 5
+tags: []
+title: Readme Maintenance
+type: general
+version: 1
+---
+
 # AI Brain Maintenance System - Quick Reference
 
 ## 🚀 Quick Start
