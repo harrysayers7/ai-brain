@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- [2025-09-14T04:43:12Z]  clean up duplicate changelog entry (53e67e1)
 ### Added
 - [2025-09-14T04:43:02Z]  add changelog management system with auto-update git hooks (6a7f4f0)
 - Initial AI Brain knowledge base structure
-- Comprehensive folder organization (knowledge/, behaviors/, systems/, tools/, commands/)
+- Comprehensive folder organization (knowledge/, prompts/, systems/, tools/, commands/)
 - 17 MCP server configurations
 - Command system with shortcuts, templates, and macros
 - Infrastructure documentation for production and local environments
@@ -29,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - N/A
 
 ### Fixed
+- [2025-09-14T04:43:12Z]  clean up duplicate changelog entry (53e67e1)
 - N/A
 
 ### Security

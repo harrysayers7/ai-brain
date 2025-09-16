@@ -3,6 +3,7 @@
 AI Brain Helper Utilities
 
 Utility functions for managing the AI Brain knowledge base.
+Updated to reflect current repository structure (2025-01-15).
 """
 
 import os
@@ -27,16 +28,50 @@ class BrainHelper:
         self.ensure_structure()
     
     def ensure_structure(self):
-        """Ensure all required directories exist"""
+        """Ensure all required directories exist based on current structure"""
         directories = [
+            # Knowledge base
             "knowledge/decisions",
             "knowledge/lessons",
             "knowledge/references",
-            "behaviors/personas",
-            "behaviors/modes",
+            
+            # Prompts
+            "prompts/personas",
+            "prompts/modes",
+            "prompts/claude-desktop",
+            "prompts/instructions",
+            
+            # Systems
             "systems/workflows",
             "systems/rules",
-            "tools/integrations"
+            
+            # Tools & Integrations
+            "tools/integrations",
+            "tools/mcp-servers",
+            "tools/claude-desktop",
+            
+            # Infrastructure
+            "infrastructure/servers",
+            "infrastructure/local",
+            "infrastructure/databases",
+            "infrastructure/docker",
+            "infrastructure/networking",
+            
+            # Commands
+            "commands/shortcuts",
+            "commands/templates",
+            "commands/macros",
+            "commands/slash-commands",
+            
+            # Instructions
+            "instructions/mcp-instructions",
+            "instructions/trigger-dev",
+            
+            # Prompts
+            "prompts",
+            
+            # Utils
+            "utils"
         ]
         
         for dir_path in directories:
@@ -50,18 +85,27 @@ class BrainHelper:
         subtype: str,
         tags: List[str] = None,
         ship_factor: int = 5,
-        references: List[str] = None
+        references: List[str] = None,
+        category: str = None
     ) -> str:
         """Create a new document with frontmatter"""
         
         # Generate filename from title
         slug = self._slugify(title)
-        path = self.root / doc_type / subtype / f"{slug}.md"
+        
+        # Determine path based on category and type
+        if category:
+            path = self.root / category / subtype / f"{slug}.md"
+        else:
+            path = self.root / doc_type / subtype / f"{slug}.md"
         
         # Check if file exists
         if path.exists():
             timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-            path = self.root / doc_type / subtype / f"{slug}-{timestamp}.md"
+            if category:
+                path = self.root / category / subtype / f"{slug}-{timestamp}.md"
+            else:
+                path = self.root / doc_type / subtype / f"{slug}-{timestamp}.md"
         
         # Create document with frontmatter
         post = frontmatter.Post(content)
@@ -77,6 +121,9 @@ class BrainHelper:
         
         if references:
             post['references'] = references
+        
+        if category:
+            post['category'] = category
         
         # Write file
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -157,7 +204,7 @@ class BrainHelper:
         results = []
         
         for md_file in self.root.rglob("*.md"):
-            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md']:
+            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md', 'CHANGELOG.md']:
                 continue
             
             with open(md_file, 'r', encoding='utf-8') as f:
@@ -169,7 +216,8 @@ class BrainHelper:
                     'path': str(md_file.relative_to(self.root)),
                     'title': post.get('title', 'Untitled'),
                     'tags': doc_tags,
-                    'ship_factor': post.get('ship_factor', 0)
+                    'ship_factor': post.get('ship_factor', 0),
+                    'category': post.get('category', 'unknown')
                 })
         
         return sorted(results, key=lambda x: x['ship_factor'], reverse=True)
@@ -179,7 +227,7 @@ class BrainHelper:
         results = []
         
         for md_file in self.root.rglob("*.md"):
-            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md']:
+            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md', 'CHANGELOG.md']:
                 continue
             
             with open(md_file, 'r', encoding='utf-8') as f:
@@ -191,14 +239,57 @@ class BrainHelper:
                         'path': str(md_file.relative_to(self.root)),
                         'title': post.get('title', 'Untitled'),
                         'ship_factor': post.get('ship_factor'),
-                        'modified': post.get('modified')
+                        'modified': post.get('modified'),
+                        'category': post.get('category', 'unknown')
                     })
         
         return sorted(results, key=lambda x: x['ship_factor'], reverse=True)
     
+    def get_by_category(self, category: str) -> List[Dict]:
+        """Get all documents in a specific category"""
+        results = []
+        category_path = self.root / category
+        
+        if not category_path.exists():
+            return results
+        
+        for md_file in category_path.rglob("*.md"):
+            if md_file.name in ['README.md']:
+                continue
+            
+            with open(md_file, 'r', encoding='utf-8') as f:
+                post = frontmatter.load(f)
+            
+            results.append({
+                'path': str(md_file.relative_to(self.root)),
+                'title': post.get('title', 'Untitled'),
+                'ship_factor': post.get('ship_factor', 0),
+                'modified': post.get('modified'),
+                'deprecated': post.get('deprecated', False)
+            })
+        
+        return sorted(results, key=lambda x: x['ship_factor'], reverse=True)
+    
+    def get_mcp_servers(self) -> List[Dict]:
+        """Get all MCP server configurations"""
+        return self.get_by_category("tools/mcp-servers")
+    
+    def get_commands(self) -> List[Dict]:
+        """Get all command-related documents"""
+        results = []
+        for subdir in ['shortcuts', 'templates', 'macros', 'slash-commands']:
+            results.extend(self.get_by_category(f"commands/{subdir}"))
+        return results
+    
+    def get_infrastructure(self) -> List[Dict]:
+        """Get all infrastructure-related documents"""
+        results = []
+        for subdir in ['servers', 'local', 'databases', 'docker', 'networking']:
+            results.extend(self.get_by_category(f"infrastructure/{subdir}"))
+        return results
+    
     def update_index(self):
         """Update the INDEX.md file with current content"""
-        # This is a simplified version - extend as needed
         stats = self.get_statistics()
         high_priority = self.get_high_priority()
         
@@ -207,17 +298,24 @@ class BrainHelper:
         print(f"Index updated: {stats['total']} total items")
     
     def get_statistics(self) -> Dict[str, int]:
-        """Get statistics about the knowledge base"""
+        """Get comprehensive statistics about the knowledge base"""
         stats = {
             'total': 0,
-            'decisions': 0,
-            'lessons': 0,
-            'workflows': 0,
-            'deprecated': 0
+            'knowledge': 0,
+            'prompts': 0,
+            'systems': 0,
+            'tools': 0,
+            'infrastructure': 0,
+            'commands': 0,
+            'instructions': 0,
+            'prompts': 0,
+            'deprecated': 0,
+            'mcp_servers': 0,
+            'high_priority': 0
         }
         
         for md_file in self.root.rglob("*.md"):
-            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md']:
+            if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md', 'CHANGELOG.md']:
                 continue
             
             stats['total'] += 1
@@ -228,15 +326,78 @@ class BrainHelper:
             if post.get('deprecated', False):
                 stats['deprecated'] += 1
             
-            subtype = post.get('subtype', '')
-            if 'decision' in subtype:
-                stats['decisions'] += 1
-            elif 'lesson' in subtype:
-                stats['lessons'] += 1
-            elif 'workflow' in subtype:
-                stats['workflows'] += 1
+            if post.get('ship_factor', 0) >= 8:
+                stats['high_priority'] += 1
+            
+            # Categorize by path
+            relative_path = str(md_file.relative_to(self.root))
+            
+            if relative_path.startswith('knowledge/'):
+                stats['knowledge'] += 1
+            elif relative_path.startswith('prompts/'):
+                stats['prompts'] += 1
+            elif relative_path.startswith('systems/'):
+                stats['systems'] += 1
+            elif relative_path.startswith('tools/'):
+                stats['tools'] += 1
+                if relative_path.startswith('tools/mcp-servers/'):
+                    stats['mcp_servers'] += 1
+            elif relative_path.startswith('infrastructure/'):
+                stats['infrastructure'] += 1
+            elif relative_path.startswith('commands/'):
+                stats['commands'] += 1
+            elif relative_path.startswith('instructions/'):
+                stats['instructions'] += 1
+            elif relative_path.startswith('prompts/'):
+                stats['prompts'] += 1
         
         return stats
+    
+    def generate_report(self) -> str:
+        """Generate a comprehensive report of the knowledge base"""
+        stats = self.get_statistics()
+        high_priority = self.get_high_priority()
+        mcp_servers = self.get_mcp_servers()
+        commands = self.get_commands()
+        infrastructure = self.get_infrastructure()
+        
+        report = f"""
+# AI Brain Knowledge Base Report
+Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+## Statistics
+- **Total Documents**: {stats['total']}
+- **Knowledge**: {stats['knowledge']}
+- **Prompts**: {stats['prompts']}
+- **Systems**: {stats['systems']}
+- **Tools**: {stats['tools']} (MCP Servers: {stats['mcp_servers']})
+- **Infrastructure**: {stats['infrastructure']}
+- **Commands**: {stats['commands']}
+- **Instructions**: {stats['instructions']}
+- **Prompts**: {stats['prompts']}
+- **High Priority**: {stats['high_priority']}
+- **Deprecated**: {stats['deprecated']}
+
+## High Priority Items (Ship Factor 8+)
+"""
+        
+        for item in high_priority:
+            report += f"- [{item['ship_factor']}] {item['title']} ({item['category']})\n"
+            report += f"  Path: {item['path']}\n"
+        
+        report += f"\n## MCP Servers ({len(mcp_servers)})\n"
+        for server in mcp_servers:
+            report += f"- {server['title']} (Ship Factor: {server['ship_factor']})\n"
+        
+        report += f"\n## Commands ({len(commands)})\n"
+        for cmd in commands:
+            report += f"- {cmd['title']} (Ship Factor: {cmd['ship_factor']})\n"
+        
+        report += f"\n## Infrastructure ({len(infrastructure)})\n"
+        for infra in infrastructure:
+            report += f"- {infra['title']} (Ship Factor: {infra['ship_factor']})\n"
+        
+        return report
     
     def _slugify(self, text: str) -> str:
         """Convert text to URL-friendly slug"""
@@ -252,7 +413,10 @@ if __name__ == "__main__":
     import argparse
     
     parser = argparse.ArgumentParser(description="AI Brain Helper")
-    parser.add_argument('action', choices=['create', 'read', 'stats', 'high-priority'])
+    parser.add_argument('action', choices=[
+        'create', 'read', 'stats', 'high-priority', 'report', 
+        'mcp-servers', 'commands', 'infrastructure', 'by-category'
+    ])
     parser.add_argument('--title', help='Document title')
     parser.add_argument('--type', help='Document type')
     parser.add_argument('--subtype', help='Document subtype')
@@ -260,6 +424,8 @@ if __name__ == "__main__":
     parser.add_argument('--tags', nargs='+', help='Tags')
     parser.add_argument('--ship-factor', type=int, default=5, help='Ship factor (1-10)')
     parser.add_argument('--path', help='Document path')
+    parser.add_argument('--category', help='Document category')
+    parser.add_argument('--references', nargs='+', help='Reference paths')
     
     args = parser.parse_args()
     
@@ -276,7 +442,9 @@ if __name__ == "__main__":
             doc_type=args.type,
             subtype=args.subtype,
             tags=args.tags,
-            ship_factor=args.ship_factor
+            ship_factor=args.ship_factor,
+            references=args.references,
+            category=args.category
         )
         print(f"Created: {path}")
     
@@ -288,6 +456,7 @@ if __name__ == "__main__":
         doc = brain.read_document(args.path)
         print(f"Title: {doc['metadata'].get('title')}")
         print(f"Ship Factor: {doc['metadata'].get('ship_factor')}")
+        print(f"Category: {doc['metadata'].get('category', 'unknown')}")
         print(f"\nContent:\n{doc['content']}")
     
     elif args.action == 'stats':
@@ -300,5 +469,37 @@ if __name__ == "__main__":
         items = brain.get_high_priority()
         print("\nHigh Priority Items (Ship Factor 8+):")
         for item in items:
-            print(f"  [{item['ship_factor']}] {item['title']}")
+            print(f"  [{item['ship_factor']}] {item['title']} ({item['category']})")
             print(f"      Path: {item['path']}")
+    
+    elif args.action == 'report':
+        report = brain.generate_report()
+        print(report)
+    
+    elif args.action == 'mcp-servers':
+        servers = brain.get_mcp_servers()
+        print(f"\nMCP Servers ({len(servers)}):")
+        for server in servers:
+            print(f"  {server['title']} (Ship Factor: {server['ship_factor']})")
+    
+    elif args.action == 'commands':
+        commands = brain.get_commands()
+        print(f"\nCommands ({len(commands)}):")
+        for cmd in commands:
+            print(f"  {cmd['title']} (Ship Factor: {cmd['ship_factor']})")
+    
+    elif args.action == 'infrastructure':
+        infra = brain.get_infrastructure()
+        print(f"\nInfrastructure ({len(infra)}):")
+        for item in infra:
+            print(f"  {item['title']} (Ship Factor: {item['ship_factor']})")
+    
+    elif args.action == 'by-category':
+        if not args.category:
+            print("Error: by-category requires --category")
+            exit(1)
+        
+        items = brain.get_by_category(args.category)
+        print(f"\nItems in {args.category} ({len(items)}):")
+        for item in items:
+            print(f"  {item['title']} (Ship Factor: {item['ship_factor']})")

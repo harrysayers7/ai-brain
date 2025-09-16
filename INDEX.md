@@ -26,15 +26,15 @@ Last Updated: 2025-09-12
 
 - No references yet (folder: `knowledge/references/`)
 
-### 🤖 Behaviors
+### 🤖 Prompts
 
 #### Active Configurations
 *AI personality and interaction patterns*
 
-- `behaviors/claude-desktop/instructions.md` - Claude Desktop integration rules
-- `behaviors/modes/accountant.md` - Accountant persona mode
-- `behaviors/modes/vibe-coding.md` - Vibe coding assistant mode
-- `behaviors/personas/` - Empty, ready for personas
+- `prompts/claude-desktop/instructions.md` - Claude Desktop integration rules
+- `prompts/modes/accountant.md` - Accountant persona mode
+- `prompts/modes/vibe-coding.md` - Vibe coding assistant mode
+- `prompts/personas/` - Empty, ready for personas
 
 ### ⚙️ Systems
 
@@ -120,7 +120,7 @@ ai-brain/
 │   ├── lessons/               # What worked/didn't work
 │   └── references/            # Quick lookups
 │
-├── behaviors/                  # How AI behaves
+├── prompts/                    # How AI behaves
 │   ├── README.md
 │   ├── claude-desktop/        # Claude Desktop instructions
 │   │   └── instructions.md
@@ -190,7 +190,7 @@ ai-brain/
 
 ### 📝 Recent Changes (2025-09-12)
 
-- Added `behaviors/claude-desktop/` for Claude Desktop integration
+- Added `prompts/claude-desktop/` for Claude Desktop integration
 - Added `tools/mcp-servers/` with 17 MCP server configurations
 - Created `infrastructure/` at root level (moved from tools)
 - Added `commands/` system with shortcuts, templates, and macros

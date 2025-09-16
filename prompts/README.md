@@ -1,6 +1,6 @@
-# Behaviors
+# Prompts
 
-AI behavior configurations including personas and operational modes.
+AI prompt configurations including personas and operational modes.
 
 ## Structure
 
@@ -9,7 +9,7 @@ AI behavior configurations including personas and operational modes.
 
 ## Purpose
 
-Define how AI assistants should behave in different contexts:
+Define how AI assistants should respond in different contexts:
 - Personality traits (helpful, skeptical, creative)
 - Communication style (formal, casual, technical)
 - Decision-making approaches (conservative, aggressive, balanced)
@@ -26,8 +26,8 @@ When invoking an AI assistant:
 
 ```markdown
 ---
-title: Behavior Name
-type: behavior
+title: Prompt Name
+type: prompt
 subtype: persona|mode
 tags: [relevant, tags]
 created: 2024-01-15T10:00:00Z
@@ -36,10 +36,10 @@ version: 1
 ship_factor: 1-10
 ---
 
-# Behavior Name
+# Prompt Name
 
 ## Role
-One-line description of this behavior.
+One-line description of this prompt.
 
 ## Characteristics
 - Key trait 1
@@ -53,8 +53,8 @@ Specific instructions for the AI.
 Sample interactions or responses.
 
 ## When to Use
-Contexts where this behavior is appropriate.
+Contexts where this prompt is appropriate.
 
 ## When NOT to Use
-Contexts where this behavior should be avoided.
+Contexts where this prompt should be avoided.
 ```

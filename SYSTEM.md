@@ -9,8 +9,8 @@ You have access to a knowledge base organized as markdown files. This document d
   - `knowledge/decisions/` = architectural and technical decisions
   - `knowledge/lessons/` = learned experiences and anti-patterns
   - `knowledge/references/` = quick reference guides and cheat sheets
-  - `behaviors/personas/` = AI personality definitions
-  - `behaviors/modes/` = operational modes (e.g., debug, production)
+  - `prompts/personas/` = AI personality definitions
+  - `prompts/modes/` = operational modes (e.g., debug, production)
   - `systems/workflows/` = step-by-step processes
   - `systems/rules/` = governance and constraints
   - `tools/integrations/` = external tool configurations

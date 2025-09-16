@@ -56,7 +56,7 @@ ai-brain/
 │   ├── lessons/        # Learned experiences
 │   └── references/     # Quick guides
 │
-├── behaviors/          # How AI should act
+├── prompts/            # How AI should act
 │   ├── personas/       # Personality configs
 │   └── modes/          # Operational modes
 │

@@ -1,0 +1,121 @@
+---
+description: Instructions for maintaining TOOLS.md - comprehensive tech stack documentation
+globs: ["TOOLS.md"]
+alwaysApply: true
+---
+
+# TOOLS.md Maintenance Instructions
+
+## Purpose
+`TOOLS.md` serves as a comprehensive overview of tools in your `tools/` directory, documenting what each tool does and where it's located in your codebase. This includes MCP servers, integrations, and Claude Desktop configurations.
+
+## When to Update
+Update `TOOLS.md` whenever you:
+- Add new tools to the `tools/` directory
+- Remove or deprecate existing tools in `tools/`
+- Change MCP server configurations
+- Add new integrations in `tools/integrations/`
+- Update Claude Desktop configurations
+
+## Content Rules
+
+### Active Tools Only
+- **ONLY list active tools** - Tools with status "Active" (actually running and operational)
+- **EXCLUDE configured tools** - Tools with status "Configured" (not yet active)
+- **EXCLUDE inactive tools** - Tools with status "Inactive", "Deprecated", or "Testing"
+- **EXCLUDE placeholder tools** - Empty files or tools not yet implemented
+- **Focus on operational tools** - What's actually running and available for use
+
+## Structure Requirements
+
+### Header Section
+```markdown
+# Tech Stack Overview
+
+This file contains an overview of my tech stack, what they do and where they are in my codebase.
+
+- Whenever I say "my server", I'm referring to my Ubuntu server 134.199.159.190
+```
+
+### Tool Categories
+Organize tools by category:
+
+#### Core Infrastructure
+- **Server**: Ubuntu server details
+- **Database**: PostgreSQL, Supabase, etc.
+- **Containerization**: Docker, Docker Compose
+
+#### MCP Servers (17 configured)
+List all MCP servers from `tools/mcp-servers/`:
+- chrome-mcp
+- context-7
+- dify-mcp-connector
+- docker
+- fastapi-mcp
+- fastmcp
+- filesystem
+- github
+- google-drive
+- graphiti
+- mindsdb
+- n8n
+- notion
+- playwright
+- slack
+- supabase
+- taskmaster
+
+#### Integrations
+- **Notion Integration**: Database configurations and API setup
+- **External Service Configs**: API keys, endpoints, credentials (reference only)
+
+#### Claude Desktop Integration
+- **Claude Desktop Tools**: Configuration and instruction files
+
+## Content Guidelines
+
+### For Each Tool Entry
+```markdown
+### Tool Name
+- **Purpose**: What it does
+- **Deployment**: Where it runs (server, local, cloud, etc.)
+- **Configuration**: Key config files
+- **Dependencies**: What it connects to
+- **Status**: Active/Deprecated/Testing
+```
+
+### Database References
+Include references to Notion databases:
+- Coding Knowledge Database: `3e82cc5a-57bd-4cb7-b85c-53b745fdc63c`
+- Tasks-AI: `bb278d48-954a-4c93-85b7-88bd4979f467`
+- Project Tracker: `a8ab8f91-6be9-4c61-b348-f08e46b22870`
+- Coding Sub Projects: `af935520-b760-4cda-848c-0f1808622ad9`
+- AI System Components & Agents: `7f90a1a3-dfae-47e8-ad0b-f0c18fc88cae`
+- Cursor Rules Database: `916aa2e8-d236-4ae5-9ab1-5f414667252c`
+
+## Maintenance Process
+
+1. **Scan `tools/` directory** for new additions
+2. **Check MCP server configs** in `tools/mcp-servers/`
+3. **Review integrations** in `tools/integrations/`
+4. **Update tool descriptions** based on actual usage
+5. **Verify database IDs** are current
+6. **Test links and references** work correctly
+
+## Quality Checklist
+- [ ] Only active/configured tools are listed (no inactive/deprecated)
+- [ ] All active tools in `tools/` directory are documented
+- [ ] MCP servers match actual configurations
+- [ ] Database IDs are current and valid
+- [ ] Tool purposes are clearly explained
+- [ ] Deployment locations are accurate
+- [ ] Status reflects actual usage
+- [ ] Dependencies are clearly mapped
+
+## Integration with AI Brain System
+This file serves as the central reference for:
+- AI assistants understanding your tech stack
+- Onboarding new team members
+- Troubleshooting tool interactions
+- Planning system upgrades
+- Documenting tool relationships

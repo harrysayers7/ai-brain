@@ -106,7 +106,7 @@ I am a [role] who [primary function].
 
 ```yaml
 # In your prompt:
-Using persona: behaviors/personas/skeptical-reviewer.md
+Using persona: prompts/personas/skeptical-reviewer.md
 
 Review this architecture...
 ```
