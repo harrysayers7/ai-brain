@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.642372'
-modified: '2025-09-16T15:05:51.711009'
+modified: '2025-09-16T19:19:40.879199'
 ship_factor: 5
 subtype: slash-commands
 tags: []

@@ -1,9 +1,8 @@
-
 # AI Brain Index
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-16 15:05:51*
+*Last updated: 2025-09-16 19:19:40*
 
 ## Prompts
 
@@ -68,6 +67,7 @@
 ### Local
 
 - [Dev Tools](infrastructure/local/dev-tools.md)
+- [Env Comprehensive Template](infrastructure/local/env-comprehensive-template.md)
 - [Env Template](infrastructure/local/env-template.md)
 - [Workstation](infrastructure/local/workstation.md)
 

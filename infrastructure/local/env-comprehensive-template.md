@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T19:19:40.867385'
+modified: '2025-09-16T19:19:40.867387'
+ship_factor: 5
+subtype: local
+tags: []
+title: Env Comprehensive Template
+type: general
+version: 1
+---
+
 # Comprehensive Environment Variables Template
 
 Copy this to `.env` and fill in your actual values.
