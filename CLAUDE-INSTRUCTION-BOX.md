@@ -1,3 +1,13 @@
+---
+created: '2025-09-16T15:05:15.610623'
+modified: '2025-09-16T15:05:15.610634'
+ship_factor: 5
+tags: []
+title: Claude Instruction Box
+type: general
+version: 1
+---
+
 This file is to be manually placed inside claude project instructions box. Any LLM should ignore this file as it is for human use only!
 
 # Custom Instructions

@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.616399'
+modified: '2025-09-16T15:05:15.616405'
+ship_factor: 5
+subtype: COMMANDS-INSTRUCTIONS.md
+tags: []
+title: Commands Instructions
+type: general
+version: 1
+---
+
 # Command System Instructions
 
 ## How Commands Work

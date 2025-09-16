@@ -1,4 +1,16 @@
 {
+    "title": "Invoice",
+    "type": "system",
+    "subtype": "workflows",
+    "created": "2025-09-16T15:05:15.623100",
+    "modified": "2025-09-16T15:05:15.623105",
+    "version": 1,
+    "ship_factor": 5,
+    "tags": []
+}
+
+
+{
     "name": "ESM PO Processing - Main Pipeline",
     "nodes": [
       {

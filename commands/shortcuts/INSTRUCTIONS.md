@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.643892'
+modified: '2025-09-16T15:05:15.643894'
+ship_factor: 5
+subtype: shortcuts
+tags: []
+title: Instructions
+type: general
+version: 1
+---
+
 # ! Command Instructions for LLMs
 
 When user types `!` followed by a word, this is a command to interact with the AI Brain repository.

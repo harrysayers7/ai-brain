@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.642372'
+modified: '2025-09-16T15:05:15.642374'
+ship_factor: 5
+subtype: slash-commands
+tags: []
+title: N8N Mcp
+type: general
+version: 1
+---
+
 # /n8n-mcp
 
 Use n8n MCP server to interact with n8n workflows and nodes.

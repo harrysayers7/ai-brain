@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.654856'
+modified: '2025-09-16T15:05:15.654861'
+ship_factor: 5
+subtype: mcp-instructions
+tags: []
+title: Context 7
+type: general
+version: 1
+---
+
 ## Context7 MCP Usage Instructions
 
 ### When to Use Context7

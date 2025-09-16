@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.650029'
+modified: '2025-09-16T15:05:15.650033'
+ship_factor: 5
+subtype: claude-desktop
+tags: []
+title: Claude Instructions
+type: tool
+version: 1
+---
+
 # Claude Desktop Integration
 
 ## Repository Navigation

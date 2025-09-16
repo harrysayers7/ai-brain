@@ -318,6 +318,10 @@ class BrainHelper:
             if md_file.name in ['SYSTEM.md', 'INDEX.md', 'README.md', 'CHANGELOG.md']:
                 continue
             
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
             stats['total'] += 1
             
             with open(md_file, 'r', encoding='utf-8') as f:
@@ -407,6 +411,403 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         text = text.strip('-')
         return text
 
+    def sync_index(self):
+        """Sync INDEX.md with current file structure"""
+        index_path = self.root / "INDEX.md"
+        
+        # Get all markdown files organized by category
+        categories = {
+            "Knowledge": [],
+            "Prompts": [],
+            "Systems": [],
+            "Tools": [],
+            "Infrastructure": [],
+            "Commands": [],
+            "Instructions": []
+        }
+        
+        for md_file in self.root.rglob("*.md"):
+            if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+                
+            relative_path = md_file.relative_to(self.root)
+            path_parts = relative_path.parts
+            
+            # Determine category based on path
+            if path_parts[0] == "knowledge":
+                categories["Knowledge"].append((relative_path, md_file))
+            elif path_parts[0] == "prompts":
+                categories["Prompts"].append((relative_path, md_file))
+            elif path_parts[0] == "systems":
+                categories["Systems"].append((relative_path, md_file))
+            elif path_parts[0] == "tools":
+                categories["Tools"].append((relative_path, md_file))
+            elif path_parts[0] == "infrastructure":
+                categories["Infrastructure"].append((relative_path, md_file))
+            elif path_parts[0] == "commands":
+                categories["Commands"].append((relative_path, md_file))
+            elif path_parts[0] == "instructions":
+                categories["Instructions"].append((relative_path, md_file))
+        
+        # Generate INDEX.md content
+        content = ["# AI Brain Index", ""]
+        content.append("> Auto-generated index of all knowledge base files")
+        content.append("")
+        content.append(f"*Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*")
+        content.append("")
+        
+        for category, files in categories.items():
+            if not files:
+                continue
+                
+            content.append(f"## {category}")
+            content.append("")
+            
+            # Group files by subcategory
+            subcategories = {}
+            for relative_path, md_file in files:
+                path_parts = relative_path.parts
+                if len(path_parts) > 1:
+                    subcategory = path_parts[1].replace('_', ' ').title()
+                else:
+                    subcategory = "General"
+                
+                if subcategory not in subcategories:
+                    subcategories[subcategory] = []
+                
+                # Get title from frontmatter or filename
+                title = self._get_file_title(md_file)
+                subcategories[subcategory].append((title, relative_path))
+            
+            for subcategory, file_list in sorted(subcategories.items()):
+                content.append(f"### {subcategory}")
+                content.append("")
+                
+                for title, relative_path in sorted(file_list):
+                    content.append(f"- [{title}]({relative_path})")
+                
+                content.append("")
+        
+        # Write INDEX.md
+        with open(index_path, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(content))
+        
+        print(f"✅ INDEX.md updated with {sum(len(files) for files in categories.values())} files")
+
+    def _get_file_title(self, md_file: Path) -> str:
+        """Get title from frontmatter or generate from filename"""
+        try:
+            with open(md_file, 'r', encoding='utf-8') as f:
+                post = frontmatter.load(f)
+                if 'title' in post.metadata:
+                    return post.metadata['title']
+        except:
+            pass
+        
+        # Fallback to filename
+        return md_file.stem.replace('-', ' ').replace('_', ' ').title()
+
+    def update_frontmatter(self):
+        """Update frontmatter in all markdown files"""
+        updated_count = 0
+        
+        for md_file in self.root.rglob("*.md"):
+            if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
+            try:
+                with open(md_file, 'r', encoding='utf-8') as f:
+                    post = frontmatter.load(f)
+                
+                # Check if frontmatter needs updating
+                needs_update = False
+                metadata = post.metadata
+                
+                # Ensure required fields exist
+                if 'title' not in metadata:
+                    metadata['title'] = self._get_file_title(md_file)
+                    needs_update = True
+                
+                if 'type' not in metadata:
+                    # Determine type from path
+                    path_parts = md_file.relative_to(self.root).parts
+                    if path_parts[0] == "knowledge":
+                        metadata['type'] = "knowledge"
+                    elif path_parts[0] == "prompts":
+                        metadata['type'] = "behavior"
+                    elif path_parts[0] == "systems":
+                        metadata['type'] = "system"
+                    elif path_parts[0] == "tools":
+                        metadata['type'] = "tool"
+                    else:
+                        metadata['type'] = "general"
+                    needs_update = True
+                
+                if 'subtype' not in metadata and len(path_parts) > 1:
+                    metadata['subtype'] = path_parts[1]
+                    needs_update = True
+                
+                if 'created' not in metadata:
+                    metadata['created'] = datetime.now().isoformat()
+                    needs_update = True
+                
+                if 'modified' not in metadata:
+                    metadata['modified'] = datetime.now().isoformat()
+                    needs_update = True
+                else:
+                    # Update modified date
+                    metadata['modified'] = datetime.now().isoformat()
+                    needs_update = True
+                
+                if 'version' not in metadata:
+                    metadata['version'] = 1
+                    needs_update = True
+                
+                if 'ship_factor' not in metadata:
+                    metadata['ship_factor'] = 5
+                    needs_update = True
+                
+                if 'tags' not in metadata:
+                    metadata['tags'] = []
+                    needs_update = True
+                
+                if needs_update:
+                    post.metadata = metadata
+                    with open(md_file, 'w', encoding='utf-8') as f:
+                        f.write(frontmatter.dumps(post))
+                    updated_count += 1
+                    
+            except Exception as e:
+                print(f"Warning: Could not update {md_file}: {e}")
+        
+        print(f"✅ Updated frontmatter in {updated_count} files")
+
+    def validate(self):
+        """Validate all files and structure"""
+        errors = []
+        warnings = []
+        
+        # Check required directories exist
+        required_dirs = [
+            "knowledge", "prompts", "systems", "tools", 
+            "infrastructure", "commands", "instructions"
+        ]
+        
+        for dir_name in required_dirs:
+            if not (self.root / dir_name).exists():
+                errors.append(f"Missing required directory: {dir_name}")
+        
+        # Check required files exist
+        required_files = ["README.md", "SYSTEM.md", "CHANGELOG.md"]
+        for file_name in required_files:
+            if not (self.root / file_name).exists():
+                errors.append(f"Missing required file: {file_name}")
+        
+        # Validate markdown files
+        for md_file in self.root.rglob("*.md"):
+            if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
+            try:
+                with open(md_file, 'r', encoding='utf-8') as f:
+                    post = frontmatter.load(f)
+                
+                metadata = post.metadata
+                
+                # Check required frontmatter fields
+                required_fields = ['title', 'type', 'created', 'modified', 'version', 'ship_factor']
+                for field in required_fields:
+                    if field not in metadata:
+                        warnings.append(f"{md_file}: Missing {field} in frontmatter")
+                
+                # Validate ship_factor range
+                if 'ship_factor' in metadata:
+                    sf = metadata['ship_factor']
+                    if not isinstance(sf, int) or sf < 1 or sf > 10:
+                        errors.append(f"{md_file}: Invalid ship_factor {sf} (must be 1-10)")
+                
+                # Validate type
+                if 'type' in metadata:
+                    valid_types = ['knowledge', 'behavior', 'system', 'tool', 'general']
+                    if metadata['type'] not in valid_types:
+                        warnings.append(f"{md_file}: Unknown type '{metadata['type']}'")
+                
+            except Exception as e:
+                errors.append(f"{md_file}: {str(e)}")
+        
+        # Report results
+        if errors:
+            print("❌ Validation errors:")
+            for error in errors:
+                print(f"  - {error}")
+        
+        if warnings:
+            print("⚠️  Validation warnings:")
+            for warning in warnings:
+                print(f"  - {warning}")
+        
+        if not errors and not warnings:
+            print("✅ All files validated successfully")
+        
+        return len(errors) == 0
+
+    def test(self):
+        """Run tests and checks"""
+        print("Running AI Brain tests...")
+        
+        # Test 1: Structure validation
+        print("1. Testing structure...")
+        if self.validate():
+            print("   ✅ Structure validation passed")
+        else:
+            print("   ❌ Structure validation failed")
+            return False
+        
+        # Test 2: Statistics generation
+        print("2. Testing statistics...")
+        stats = self.get_statistics()
+        print(f"   ✅ Found {stats['total']} files")
+        
+        # Test 3: Index generation
+        print("3. Testing index generation...")
+        try:
+            self.sync_index()
+            print("   ✅ Index generation passed")
+        except Exception as e:
+            print(f"   ❌ Index generation failed: {e}")
+            return False
+        
+        print("✅ All tests passed")
+        return True
+
+    def format(self):
+        """Format all markdown files"""
+        formatted_count = 0
+        
+        for md_file in self.root.rglob("*.md"):
+            if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
+            try:
+                with open(md_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Basic formatting (you can enhance this)
+                lines = content.split('\n')
+                formatted_lines = []
+                
+                for line in lines:
+                    # Remove trailing whitespace
+                    line = line.rstrip()
+                    formatted_lines.append(line)
+                
+                # Remove multiple empty lines
+                final_lines = []
+                prev_empty = False
+                for line in formatted_lines:
+                    if line == "":
+                        if not prev_empty:
+                            final_lines.append(line)
+                        prev_empty = True
+                    else:
+                        final_lines.append(line)
+                        prev_empty = False
+                
+                formatted_content = '\n'.join(final_lines)
+                
+                if formatted_content != content:
+                    with open(md_file, 'w', encoding='utf-8') as f:
+                        f.write(formatted_content)
+                    formatted_count += 1
+                    
+            except Exception as e:
+                print(f"Warning: Could not format {md_file}: {e}")
+        
+        print(f"✅ Formatted {formatted_count} files")
+
+    def lint(self):
+        """Lint all files for issues"""
+        issues = []
+        
+        for md_file in self.root.rglob("*.md"):
+            if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
+                continue
+            
+            # Skip files in venv directory
+            if "venv/" in str(md_file):
+                continue
+            
+            try:
+                with open(md_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                lines = content.split('\n')
+                
+                for i, line in enumerate(lines, 1):
+                    # Check for common issues
+                    if len(line) > 100:
+                        issues.append(f"{md_file}:{i} Line too long ({len(line)} chars)")
+                    
+                    if line.endswith(' '):
+                        issues.append(f"{md_file}:{i} Trailing whitespace")
+                    
+                    if line.startswith(' ') and not line.startswith('  '):
+                        issues.append(f"{md_file}:{i} Inconsistent indentation")
+                
+            except Exception as e:
+                issues.append(f"{md_file}: Error reading file - {e}")
+        
+        if issues:
+            print("Linting issues found:")
+            for issue in issues:
+                print(f"  - {issue}")
+        else:
+            print("✅ No linting issues found")
+        
+        return len(issues) == 0
+
+    def generate_docs(self):
+        """Generate documentation"""
+        docs_dir = self.root / "docs"
+        docs_dir.mkdir(exist_ok=True)
+        
+        # Generate API documentation
+        api_doc = docs_dir / "api.md"
+        with open(api_doc, 'w', encoding='utf-8') as f:
+            f.write("# AI Brain API Documentation\n\n")
+            f.write("This document describes the AI Brain helper functions.\n\n")
+            f.write("## BrainHelper Class\n\n")
+            f.write("The main class for interacting with the AI Brain knowledge base.\n\n")
+            f.write("### Methods\n\n")
+            f.write("- `create_document()`: Create a new document\n")
+            f.write("- `update_document()`: Update an existing document\n")
+            f.write("- `get_document()`: Retrieve a document\n")
+            f.write("- `list_documents()`: List documents by criteria\n")
+            f.write("- `sync_index()`: Update INDEX.md\n")
+            f.write("- `validate()`: Validate all files\n")
+            f.write("- `get_statistics()`: Get repository statistics\n")
+        
+        print("✅ Documentation generated in docs/")
 
 # CLI Interface
 if __name__ == "__main__":
@@ -415,7 +816,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="AI Brain Helper")
     parser.add_argument('action', choices=[
         'create', 'read', 'stats', 'high-priority', 'report', 
-        'mcp-servers', 'commands', 'infrastructure', 'by-category'
+        'mcp-servers', 'commands', 'infrastructure', 'by-category',
+        'sync-index', 'update-frontmatter', 'validate', 'test', 
+        'format', 'lint', 'generate-docs'
     ])
     parser.add_argument('--title', help='Document title')
     parser.add_argument('--type', help='Document type')
@@ -503,3 +906,27 @@ if __name__ == "__main__":
         print(f"\nItems in {args.category} ({len(items)}):")
         for item in items:
             print(f"  {item['title']} (Ship Factor: {item['ship_factor']})")
+    
+    elif args.action == 'sync-index':
+        brain.sync_index()
+    
+    elif args.action == 'update-frontmatter':
+        brain.update_frontmatter()
+    
+    elif args.action == 'validate':
+        success = brain.validate()
+        exit(0 if success else 1)
+    
+    elif args.action == 'test':
+        success = brain.test()
+        exit(0 if success else 1)
+    
+    elif args.action == 'format':
+        brain.format()
+    
+    elif args.action == 'lint':
+        success = brain.lint()
+        exit(0 if success else 1)
+    
+    elif args.action == 'generate-docs':
+        brain.generate_docs()

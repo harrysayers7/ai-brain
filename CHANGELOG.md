@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- [2025-09-16T03:37:35Z]  rename behaviors directory to prompts (a067a59)
 ### Fixed
 - [2025-09-14T04:43:12Z]  clean up duplicate changelog entry (53e67e1)
 ### Added
@@ -22,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Git hooks for automatic changelog updates
 
 ### Changed
+- [2025-09-16T03:37:35Z]  rename behaviors directory to prompts (a067a59)
 - N/A
 
 ### Deprecated

@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.620208'
+modified: '2025-09-16T15:05:15.620210'
+ship_factor: 5
+subtype: local
+tags: []
+title: Workstation
+type: general
+version: 1
+---
+
 # Local Development Workstation
 
 ## System

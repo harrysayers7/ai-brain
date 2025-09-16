@@ -1,3 +1,14 @@
+---
+created: '2025-09-16T15:05:15.653818'
+modified: '2025-09-16T15:05:15.653819'
+ship_factor: 5
+subtype: integrations
+tags: []
+title: Databases
+type: tool
+version: 1
+---
+
 ##notion databases to use
 
 ###Coding Knowledge Database:

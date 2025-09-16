@@ -1,3 +1,13 @@
+---
+created: '2025-09-16T15:05:15.615144'
+modified: '2025-09-16T15:05:15.615150'
+ship_factor: 5
+tags: []
+title: Tools
+type: general
+version: 1
+---
+
 # Tech Stack Overview
 
 This file contains an overview of my tech stack, what they do and where they are in my codebase.
