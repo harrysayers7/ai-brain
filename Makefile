@@ -2,7 +2,7 @@
 # Automated maintenance and update system for the AI Brain knowledge base
 
 # Include git operations
-include git.mk
+include $(dir $(lastword $(MAKEFILE_LIST)))git.mk
 
 .PHONY: help install update validate test clean sync-index update-frontmatter check-deps format lint docs monitor-context watch-context update-system analyze-codebase integrated-update quick-update sync-context
 
