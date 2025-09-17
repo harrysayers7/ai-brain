@@ -1,3 +1,14 @@
+---
+created: '2025-09-17T16:12:32.929948'
+modified: '2025-09-17T16:12:32.929950'
+ship_factor: 5
+subtype: templates
+tags: []
+title: Code Generation
+type: general
+version: 1
+---
+
 # Code Generation Template
 
 ## Template Structure

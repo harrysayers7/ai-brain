@@ -1,3 +1,14 @@
+---
+created: '2025-09-17T16:12:32.928402'
+modified: '2025-09-17T16:12:32.928404'
+ship_factor: 5
+subtype: system-prompts
+tags: []
+title: Claude Code
+type: general
+version: 1
+---
+
 # Claude Code System Prompt
 
 ## Core Instructions

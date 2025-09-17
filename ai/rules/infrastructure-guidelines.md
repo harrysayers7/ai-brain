@@ -1,3 +1,14 @@
+---
+created: '2025-09-17T16:12:32.929501'
+modified: '2025-09-17T16:12:32.929503'
+ship_factor: 5
+subtype: rules
+tags: []
+title: Infrastructure Guidelines
+type: general
+version: 1
+---
+
 # Infrastructure Guidelines
 
 ## Core Principles

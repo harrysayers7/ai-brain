@@ -1,3 +1,14 @@
+---
+created: '2025-09-17T16:12:32.926614'
+modified: '2025-09-17T16:12:32.926616'
+ship_factor: 5
+subtype: modes
+tags: []
+title: Developer
+type: general
+version: 1
+---
+
 # Developer Persona
 
 ## Core Characteristics
