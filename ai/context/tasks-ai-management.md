@@ -65,5 +65,7 @@ When creating tasks, default to:
 - Status: "Not Started"
 - Priority: Only add if explicitly requested
 - Assigner: Always "AI"
-- Category: Infer from context
+- Notes - with relevant details or descriptions
+- Category: Infer from context - do not add new category
+- Area: fill in with an existing item - if it relates to existing items ie. Mokai, Mok Music, Brain,  Mac etc.
 - Add relevant Tags based on conversation content
