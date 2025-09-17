@@ -35,11 +35,7 @@ class BrainHelper:
             "knowledge/lessons",
             "knowledge/references",
             
-            # Prompts
-            "prompts/personas",
-            "prompts/modes",
-            "prompts/claude-desktop",
-            "prompts/instructions",
+            # Prompts (removed hardcoded subdirectories - let them be created dynamically)
             
             # Systems
             "systems/workflows",
