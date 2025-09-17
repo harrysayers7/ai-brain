@@ -2,7 +2,7 @@
 
 You have access to a knowledge base organized as markdown files. This document defines how to navigate and use this system.
 
-*Last updated: 2025-09-17 17:33:23*
+*Last updated: 2025-09-18 06:32:12*
 
 ## Structure Convention
 
@@ -114,10 +114,10 @@ references:
 - Use plural for folder names: `decisions` not `decision`
 
 ### Current Patterns
-- **kebab-case**: 37 files
-- **frontmatter**: 72 files
-- **structured**: 35 files
+- **kebab-case**: 38 files
+- **structured**: 36 files
 - **code_blocks**: 30 files
+- **frontmatter**: 71 files
 - **UPPERCASE**: 26 files
 - **lowercase**: 19 files
 
