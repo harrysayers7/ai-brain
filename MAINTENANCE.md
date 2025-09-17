@@ -1,333 +1,152 @@
----
-created: '2025-09-16T15:05:15.614529'
-modified: '2025-09-17T15:35:59.440331'
-ship_factor: 5
-tags: []
-title: Maintenance
-type: general
-version: 1
----
+# AI Brain Maintenance Guide
 
-# AI Brain Maintenance System
+This document outlines maintenance procedures to keep the AI Brain system functioning properly.
 
-This document describes the automated maintenance system for the AI Brain knowledge base.
+## Automatic Maintenance
 
-## Overview
+The system includes several automatic maintenance features:
 
-The AI Brain maintenance system provides automated tools to keep your knowledge base organized, validated, and up-to-date. It includes:
+### 1. INDEX.md Auto-Generation
+- **Command**: `make sync-index`
+- **Purpose**: Automatically generates INDEX.md from current directory structure
+- **Trigger**: Run after any major directory restructuring
+- **How it works**: The `brain_helper.py` script now **dynamically discovers** all top-level directories instead of using hardcoded lists
 
-- **Makefile**: Easy-to-use commands for maintenance tasks
-- **Git Hooks**: Automatic updates on commit
-- **Python Helper**: Core functionality for file management
-- **Validation**: Ensures consistency and structure
+### 2. Frontmatter Updates
+- **Command**: `make update-frontmatter`
+- **Purpose**: Ensures all markdown files have proper frontmatter
+- **Trigger**: Run when adding new files or changing structure
 
-## Quick Start
+### 3. Validation
+- **Command**: `make validate`
+- **Purpose**: Checks for structural issues and missing required fields
+- **Trigger**: Run before committing major changes
 
-### 1. Initial Setup
+## When to Run Maintenance
 
+### After Directory Changes
 ```bash
-# Run the setup script
-./setup.sh
+# After creating new top-level directories
+make sync-index
 
-# Or manually install dependencies
-pip3 install python-frontmatter pyyaml
-make install
+# After moving files between directories
+make sync-index
+
+# After adding new files
+make update-frontmatter
 ```
 
-### 2. Basic Usage
-
+### Before Commits
 ```bash
-# Run full update cycle
-make update
-
-# Validate all files
+# Full validation before committing
 make validate
-
-# Show help
-make help
+make sync-index
 ```
 
-## Makefile Commands
-
-### Core Commands
-
-| Command | Description |
-|---------|-------------|
-| `make help` | Show all available commands |
-| `make install` | Install dependencies and setup |
-| `make update` | Run complete update cycle |
-| `make validate` | Validate all files and structure |
-| `make test` | Run tests and checks |
-
-### Maintenance Commands
-
-| Command | Description |
-|---------|-------------|
-| `make sync-index` | Update INDEX.md with current structure |
-| `make update-frontmatter` | Update frontmatter in all files |
-| `make format` | Format all markdown files |
-| `make lint` | Lint files for issues |
-| `make clean` | Clean temporary files |
-
-### Development Commands
-
-| Command | Description |
-|---------|-------------|
-| `make stats` | Show repository statistics |
-| `make docs` | Generate documentation |
-| `make backup` | Create backup of current state |
-| `make watch` | Watch for changes and auto-update |
-
-### Git Integration
-
-| Command | Description |
-|---------|-------------|
-| `make pre-commit` | Run pre-commit checks |
-| `make post-commit` | Run post-commit updates |
-
-## Git Hooks
-
-### Pre-Commit Hook
-
-Runs automatically before each commit:
-- Validates file structure
-- Checks frontmatter consistency
-- Runs linting checks
-- Prevents commits with validation errors
-
-### Post-Commit Hook
-
-Runs automatically after each commit:
-- Updates CHANGELOG.md
-- Syncs INDEX.md with current structure
-- Updates frontmatter in all files
-- Validates changes
-
-## Python Helper
-
-The `utils/brain_helper.py` script provides core functionality:
-
-### CLI Usage
-
+### Regular Maintenance
 ```bash
-# Sync index
-python3 utils/brain_helper.py sync-index
-
-# Update frontmatter
-python3 utils/brain_helper.py update-frontmatter
-
-# Validate files
-python3 utils/brain_helper.py validate
-
-# Run tests
-python3 utils/brain_helper.py test
-
-# Format files
-python3 utils/brain_helper.py format
-
-# Lint files
-python3 utils/brain_helper.py lint
-
-# Generate docs
-python3 utils/brain_helper.py generate-docs
+# Weekly maintenance
+make format
+make lint
+make validate
 ```
 
-### Python API
+## Critical Maintenance Rules
 
-```python
-from utils.brain_helper import BrainHelper
+### 1. Never Hardcode Directory Names
+- The `brain_helper.py` script now **dynamically discovers** directories
+- This prevents the INDEX.md from becoming outdated when structure changes
+- **If you modify `brain_helper.py`**: Always use dynamic discovery, never hardcode directory lists
 
-# Initialize
-brain = BrainHelper()
+### 2. Always Test After Structure Changes
+- Run `make sync-index` after any directory restructuring
+- Verify INDEX.md includes all expected files
+- Check that new directories appear in the index
 
-# Sync index
-brain.sync_index()
-
-# Update frontmatter
-brain.update_frontmatter()
-
-# Validate
-if brain.validate():
-    print("All files valid")
-
-# Get statistics
-stats = brain.get_statistics()
-print(f"Total files: {stats['total_files']}")
-```
-
-## File Structure
-
-```
-ai-brain/
-├── Makefile                 # Main maintenance commands
-├── setup.sh                # Initial setup script
-├── MAINTENANCE.md          # This documentation
-├── scripts/                # Maintenance scripts
-│   ├── update-index.sh
-│   ├── update-frontmatter.sh
-│   └── validate-files.sh
-├── utils/
-│   └── brain_helper.py     # Core Python helper
-└── .git/hooks/             # Git hooks
-    ├── pre-commit          # Pre-commit validation
-    └── post-commit         # Post-commit updates
-```
-
-## Configuration
-
-### Frontmatter Requirements
-
-All markdown files should include:
-
-```yaml
----
-title: Document Title
-type: knowledge|behavior|system|tool|general
-subtype: specific category
-created: 2024-01-15T10:00:00Z
-modified: 2024-01-15T10:00:00Z
-version: 1
-ship_factor: 1-10
-tags: [tag1, tag2]
----
-```
-
-### Directory Structure
-
-The system expects these directories:
-- `knowledge/` - Knowledge base content
-- `prompts/` - AI behavior configurations
-- `systems/` - System documentation
-- `tools/` - Tool configurations
-- `infrastructure/` - Infrastructure docs
-- `commands/` - Command documentation
-- `instructions/` - Instruction sets
+### 3. Keep Frontmatter Consistent
+- All markdown files should have proper frontmatter
+- Use `make update-frontmatter` to fix missing fields
+- Follow the frontmatter template in `ai/rules/README.md`
 
 ## Troubleshooting
 
-### Common Issues
-
-1. **Python dependencies missing**
+### INDEX.md Missing Files
+1. Check if new directories are being discovered:
    ```bash
-   pip3 install python-frontmatter pyyaml
+   python3 utils/brain_helper.py stats
    ```
-
-2. **Git hooks not working**
-   ```bash
-   chmod +x .git/hooks/*
-   ```
-
-3. **Validation errors**
-   ```bash
-   make validate  # See specific errors
-   make format    # Fix formatting issues
-   ```
-
-4. **INDEX.md not updating**
+2. Run sync-index:
    ```bash
    make sync-index
    ```
+3. If still missing, check `brain_helper.py` for hardcoded exclusions
 
-### Debug Mode
+### Frontmatter Issues
+1. Run frontmatter update:
+   ```bash
+   make update-frontmatter
+   ```
+2. Check for validation errors:
+   ```bash
+   make validate
+   ```
 
-Run individual components to debug:
+### Structure Validation Failures
+1. Check for missing required directories
+2. Verify all markdown files have proper frontmatter
+3. Run format and lint to fix common issues:
+   ```bash
+   make format
+   make lint
+   ```
 
-```bash
-# Test Python helper
-python3 utils/brain_helper.py test
+## Prevention Measures
 
-# Test specific functions
-python3 utils/brain_helper.py validate
-python3 utils/brain_helper.py sync-index
+### 1. Dynamic Discovery
+- The `sync_index()` function now uses `self.root.iterdir()` to discover directories
+- No more hardcoded directory lists that become outdated
+- Automatically adapts to new directory structures
 
-# Test git hooks manually
-.git/hooks/pre-commit
-.git/hooks/post-commit
-```
+### 2. Comprehensive Testing
+- The `test()` function validates the entire system
+- Run `make test` before major changes
+- Ensures INDEX.md generation works correctly
 
-## Customization
+### 3. Regular Validation
+- Set up automated checks (if possible)
+- Run maintenance commands regularly
+- Monitor for structural drift
 
-### Adding New File Types
+## Emergency Recovery
 
-1. Update `brain_helper.py` validation rules
-2. Add to directory structure in `ensure_structure()`
-3. Update INDEX.md generation logic
+If the system becomes completely broken:
 
-### Custom Validation Rules
+1. **Reset INDEX.md**:
+   ```bash
+   rm INDEX.md
+   make sync-index
+   ```
 
-Modify the `validate()` method in `brain_helper.py`:
+2. **Fix all frontmatter**:
+   ```bash
+   make update-frontmatter
+   ```
 
-```python
-def validate(self):
-    # Add your custom validation logic
-    # Return True if valid, False if errors found
-    pass
-```
+3. **Validate and fix**:
+   ```bash
+   make validate
+   make format
+   make lint
+   ```
 
-### Custom Update Scripts
+4. **Full system test**:
+   ```bash
+   make test
+   ```
 
-Add new scripts to `scripts/` directory and update the Makefile:
+## Notes
 
-```makefile
-custom-task: ## Custom task description
-	@echo "Running custom task..."
-	@./scripts/custom-script.sh
-```
-
-## Best Practices
-
-1. **Run `make update` regularly** to keep files synchronized
-2. **Use `make validate` before committing** to catch issues early
-3. **Check `make stats`** to monitor repository health
-4. **Use descriptive commit messages** for better changelog generation
-5. **Keep frontmatter consistent** across all files
-
-## Integration with Other Tools
-
-### VS Code
-
-Add to your workspace settings:
-
-```json
-{
-    "files.associations": {
-        "*.md": "markdown"
-    },
-    "markdown.preview.breaks": true
-}
-```
-
-### Obsidian
-
-1. Open the ai-brain directory as a vault
-2. Use the graph view to see relationships
-3. Edit files with full markdown support
-
-### Dify
-
-1. Point your knowledge base to this repository
-2. Use tags for filtering content
-3. Use ship_factor for prioritization
-
-## Contributing
-
-When adding new features:
-
-1. Update the Makefile with new commands
-2. Add corresponding Python methods to `brain_helper.py`
-3. Update this documentation
-4. Test with `make test`
-5. Update the changelog
-
-## Support
-
-For issues or questions:
-
-1. Check the troubleshooting section
-2. Run `make test` to identify problems
-3. Check git hook logs for errors
-4. Review the Python helper documentation
-
----
-
-*This maintenance system is designed to keep your AI Brain knowledge base organized and consistent automatically.*
+- The system is designed to be **self-maintaining** through dynamic discovery
+- Manual intervention should only be needed for major structural changes
+- Always test after making changes to `brain_helper.py`
+- Keep this document updated when adding new maintenance procedures

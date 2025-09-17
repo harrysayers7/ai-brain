@@ -415,16 +415,11 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         """Sync INDEX.md with current file structure"""
         index_path = self.root / "INDEX.md"
         
-        # Get all markdown files organized by category
-        categories = {
-            "Knowledge": [],
-            "Prompts": [],
-            "Systems": [],
-            "Tools": [],
-            "Infrastructure": [],
-            "Commands": [],
-            "Instructions": []
-        }
+        # Dynamically discover all top-level directories
+        categories = {}
+        for item in self.root.iterdir():
+            if item.is_dir() and not item.name.startswith('.') and item.name not in ['venv', '__pycache__']:
+                categories[item.name.title()] = []
         
         for md_file in self.root.rglob("*.md"):
             if md_file.name in ["README.md", "INDEX.md", "CHANGELOG.md", "SYSTEM.md"]:
@@ -437,21 +432,16 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             relative_path = md_file.relative_to(self.root)
             path_parts = relative_path.parts
             
-            # Determine category based on path
-            if path_parts[0] == "knowledge":
-                categories["Knowledge"].append((relative_path, md_file))
-            elif path_parts[0] == "prompts":
-                categories["Prompts"].append((relative_path, md_file))
-            elif path_parts[0] == "systems":
-                categories["Systems"].append((relative_path, md_file))
-            elif path_parts[0] == "tools":
-                categories["Tools"].append((relative_path, md_file))
-            elif path_parts[0] == "infrastructure":
-                categories["Infrastructure"].append((relative_path, md_file))
-            elif path_parts[0] == "commands":
-                categories["Commands"].append((relative_path, md_file))
-            elif path_parts[0] == "instructions":
-                categories["Instructions"].append((relative_path, md_file))
+            # Determine category based on first path part
+            if len(path_parts) > 0:
+                top_level_dir = path_parts[0]
+                category_name = top_level_dir.title()
+                
+                # Ensure category exists in our dictionary
+                if category_name not in categories:
+                    categories[category_name] = []
+                
+                categories[category_name].append((relative_path, md_file))
         
         # Generate INDEX.md content
         content = ["# AI Brain Index", ""]

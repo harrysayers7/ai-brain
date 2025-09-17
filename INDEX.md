@@ -2,29 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-17 15:35:59*
-
-## Prompts
-
-### Claude-Desktop
-
-- [Claude[Instructions]](prompts/claude-desktop/claude[INSTRUCTIONS].md)
-- [Mcp Server Application](prompts/claude-desktop/mcp-server-application.md)
-
-### Instructions
-
-- [Create Mcp Server](prompts/instructions/create-mcp-server.md)
-
-### Modes
-
-- [Accountant](prompts/modes/accountant.md)
-- [Vibe Coding](prompts/modes/vibe-coding.md)
-
-## Systems
-
-### Workflows
-
-- [Invoice](systems/workflows/invoice.md)
+*Last updated: 2025-09-17 16:10:04*
 
 ## Tools
 
@@ -58,22 +36,54 @@
 
 - [Trigger Dev](tools/trigger-dev.md)
 
-## Infrastructure
+## Docs
 
-### Databases
+### Guides
 
-- [Supabase](infrastructure/databases/supabase.md)
+- [Context 7](docs/guides/mcp-instructions/context-7.md)
+- [Create Mcp Server](docs/guides/mcp-instructions/create-mcp-server.md)
+- [Trigger Dev](docs/guides/trigger-dev/trigger-dev.md)
 
-### Local
+## Ai
 
-- [Dev Tools](infrastructure/local/dev-tools.md)
-- [Env Comprehensive Template](infrastructure/local/env-comprehensive-template.md)
-- [Env Template](infrastructure/local/env-template.md)
-- [Workstation](infrastructure/local/workstation.md)
+### Context
 
-### Servers
+- [Tech Stack](ai/context/tech-stack.md)
 
-- [Production](infrastructure/servers/production.md)
+### Modes
+
+- [Accountant](ai/modes/accountant.md)
+- [Developer](ai/modes/developer.md)
+- [Vibe Coding](ai/modes/vibe-coding.md)
+
+### Rules
+
+- [Infrastructure Guidelines](ai/rules/infrastructure-guidelines.md)
+- [Mcp Usage](ai/rules/mcp-usage.md)
+
+### System-Prompts
+
+- [Claude Code](ai/system-prompts/claude-code.md)
+- [Claude Desktop](ai/system-prompts/claude-desktop.md)
+- [Claude[Instructions]](ai/system-prompts/claude[INSTRUCTIONS].md)
+
+### Templates
+
+- [Code Generation](ai/templates/code-generation.md)
+
+### Workflows
+
+- [Invoice Processing](ai/workflows/invoice-processing.md)
+
+## Prompts
+
+### Claude-Desktop
+
+- [Mcp Server Application](prompts/claude-desktop/mcp-server-application.md)
+
+### Instructions
+
+- [Create Mcp Server](prompts/instructions/create-mcp-server.md)
 
 ## Commands
 
@@ -92,3 +102,50 @@
 
 - [N8N Mcp](commands/slash-commands/n8n-mcp.md)
 - [Slash Commands](commands/slash-commands/slash-commands.md)
+
+## Systems
+
+### Workflows
+
+- [Invoice](systems/workflows/invoice.md)
+
+## Infrastructure
+
+### Databases
+
+- [Supabase](infrastructure/databases/supabase.md)
+
+### Local
+
+- [Dev Tools](infrastructure/local/dev-tools.md)
+- [Env Comprehensive Template](infrastructure/local/env-comprehensive-template.md)
+- [Env Template](infrastructure/local/env-template.md)
+- [Workstation](infrastructure/local/workstation.md)
+
+### Servers
+
+- [Production](infrastructure/servers/production.md)
+
+## Claude-Instruction-Box.Md
+
+### General
+
+- [Claude Instruction Box](CLAUDE-INSTRUCTION-BOX.md)
+
+## Infrastructure-Map.Md
+
+### General
+
+- [Infrastructure Map](INFRASTRUCTURE-MAP.md)
+
+## Maintenance.Md
+
+### General
+
+- [Maintenance](MAINTENANCE.md)
+
+## Readme-Maintenance.Md
+
+### General
+
+- [Readme Maintenance](README-MAINTENANCE.md)

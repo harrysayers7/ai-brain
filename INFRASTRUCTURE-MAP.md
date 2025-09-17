@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.613592'
-modified: '2025-09-17T15:35:59.440093'
+modified: '2025-09-17T15:36:34.473346'
 ship_factor: 5
 tags: []
 title: Infrastructure Map

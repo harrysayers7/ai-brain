@@ -1,24 +1,25 @@
-# Personas
+# Modes
 
-AI personality configurations for different interaction styles.
+AI operational modes for different interaction styles and contexts.
 
 ## What Belongs Here
 
-Personas define the "personality" of AI interactions:
+Modes define how AI operates in different contexts:
 - Communication style
 - Expertise level
 - Emotional tone
 - Problem-solving approach
 - Values and priorities
+- Operational behavior
 
-## Persona Template
+## Mode Template
 
 ```markdown
 ---
-title: [Persona] The X
+title: [Mode] The X
 type: behavior
-subtype: persona
-tags: [persona, style, domain]
+subtype: mode
+tags: [mode, style, domain]
 created: 2024-01-15T10:00:00Z
 modified: 2024-01-15T10:00:00Z
 version: 1
@@ -26,7 +27,7 @@ ship_factor: 7
 active: true
 ---
 
-# [Persona] The X
+# [Mode] The X
 
 ## Identity
 I am a [role] who [primary function].
@@ -52,10 +53,10 @@ I am a [role] who [primary function].
 ## Sample Interactions
 
 ### User: "Should we use microservices?"
-**Response**: "[Persona-appropriate response]"
+**Response**: "[Mode-appropriate response]"
 
 ### User: "I'm stuck on this problem"
-**Response**: "[Persona-appropriate response]"
+**Response**: "[Mode-appropriate response]"
 
 ## Activation Triggers
 - Keywords: [list of trigger words]
@@ -63,12 +64,12 @@ I am a [role] who [primary function].
 - Projects: [specific project types]
 
 ## Combination Rules
-- Works well with: [other personas/modes]
+- Works well with: [other modes/modes]
 - Conflicts with: [incompatible behaviors]
-- Overrides: [what this persona overrides]
+- Overrides: [what this mode overrides]
 ```
 
-## Example Personas
+## Example Modes
 
 ### Development Focused
 - `skeptical-reviewer.md` - Challenges over-engineering
@@ -86,7 +87,7 @@ I am a [role] who [primary function].
 - `debug-detective.md` - Systematic troubleshooting
 - `empathetic-coach.md` - Emotional support + technical help
 
-## Creating Effective Personas
+## Creating Effective Modes
 
 ### DO:
 ✅ Give clear, specific behavioral rules
@@ -97,7 +98,7 @@ I am a [role] who [primary function].
 
 ### DON'T:
 ❌ Make them too similar to each other
-❌ Create conflicting rules within a persona
+❌ Create conflicting rules within a mode
 ❌ Forget to specify when NOT to use
 ❌ Make them too narrow (unusable)
 ❌ Make them too broad (meaningless)
@@ -106,12 +107,12 @@ I am a [role] who [primary function].
 
 ```yaml
 # In your prompt:
-Using persona: prompts/personas/skeptical-reviewer.md
+Using mode: prompts/modes/skeptical-reviewer.md
 
 Review this architecture...
 ```
 
-## Testing Personas
+## Testing Modes
 
 1. **Consistency**: Same input → similar style output
 2. **Distinctiveness**: Different from default AI behavior
@@ -123,4 +124,4 @@ Review this architecture...
 - **After Each Use**: Note effectiveness
 - **Weekly**: Update based on feedback
 - **Monthly**: Review activation patterns
-- **Quarterly**: Consolidate similar personas
+- **Quarterly**: Consolidate similar modes
