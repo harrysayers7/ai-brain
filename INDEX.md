@@ -2,7 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-17 16:12:32*
+*Last updated: 2025-09-17 16:14:24*
 
 ## Tools
 
@@ -48,6 +48,7 @@
 
 ### Context
 
+- [Mcp Server Application](ai/context/mcp-server-application.md)
 - [Tech Stack](ai/context/tech-stack.md)
 
 ### Modes
@@ -76,10 +77,6 @@
 - [Invoice Processing](ai/workflows/invoice-processing.md)
 
 ## Prompts
-
-### Claude-Desktop
-
-- [Mcp Server Application](prompts/claude-desktop/mcp-server-application.md)
 
 ### Instructions
 
