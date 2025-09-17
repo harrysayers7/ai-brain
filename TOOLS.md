@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.615144'
-modified: '2025-09-16T19:19:40.865120'
+modified: '2025-09-16T19:20:17.739426'
 ship_factor: 5
 tags: []
 title: Tools
@@ -18,16 +18,16 @@ This file contains an overview of my tech stack, what they do and where they are
 
 ### Active MCP Servers
 - **context-7**: Context and fact verification for AI responses
-  - **Deployment**: Local (Claude Desktop)
+  - **Deployment**: Local - Claude desktop, Cursor, Claude Code
   - **Usage**: Verify current information before providing answers
   - **Status**: Active
 
 - **docker**: Docker container management
-  - **Deployment**: Local (Claude Desktop)
+  - **Deployment**: Local - Claude desktop, Cursor, Claude Code
   - **Status**: Active
 
 - **github**: GitHub repository management
-  - **Deployment**: Local (Claude Desktop)
+  - **Deployment**: Local - Claude desktop, Cursor, Claude Code
   - **Status**: Active
 
 - **n8n**: Workflow automation platform
@@ -41,6 +41,7 @@ This file contains an overview of my tech stack, what they do and where they are
 - **supabase**: Supabase database and backend services
   - **Deployment**: Production Server (134.199.159.190:3000)
   - **Status**: Active
+
 
 - **taskmaster**: AI-optimized task management
   - **Deployment**: Local (Claude Desktop)

@@ -17,3 +17,7 @@ echo -e "${BLUE}Validating AI Brain structure...${NC}"
 python3 utils/brain_helper.py validate
 
 echo -e "${GREEN}✅ Validation complete${NC}"
+
+
+
+

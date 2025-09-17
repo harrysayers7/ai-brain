@@ -17,3 +17,7 @@ echo -e "${BLUE}Updating frontmatter...${NC}"
 python3 utils/brain_helper.py update-frontmatter
 
 echo -e "${GREEN}✅ Frontmatter updated${NC}"
+
+
+
+

@@ -17,3 +17,7 @@ echo -e "${BLUE}Updating INDEX.md...${NC}"
 python3 utils/brain_helper.py sync-index
 
 echo -e "${GREEN}✅ INDEX.md updated${NC}"
+
+
+
+

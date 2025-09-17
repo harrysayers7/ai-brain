@@ -1,52 +1,61 @@
 ---
 created: '2025-09-16T15:05:15.620208'
-modified: '2025-09-16T19:19:40.867128'
+modified: '2025-01-17T12:00:00.000000'
 ship_factor: 5
 subtype: local
 tags: []
 title: Workstation
 type: general
-version: 1
+version: 2
 ---
 
 # Local Development Workstation
 
 ## System
 ```yaml
-os: [macOS/Windows/Linux]
-version: [VERSION]
-arch: [arm64/x86_64]
-hostname: [LOCAL_HOSTNAME]
+os: macOS
+version: 23.6.0 (Sequoia)
+arch: arm64
+hostname: Harrys-MacBook-Pro-2.local
 ```
 
 ## Hardware
 ```yaml
-cpu: [CPU_MODEL]
-ram: [AMOUNT]GB
-storage: [SIZE]
-gpu: [IF_APPLICABLE]
+cpu: Apple M1 Max
+ram: 32GB
+storage: 3.6TB (1.1TB available)
+gpu: Apple M1 Max GPU
 ```
 
 ## Development Stack
 ```yaml
 languages:
-  - Python [VERSION]
-  - Node.js [VERSION]
-  - TypeScript [VERSION]
+  - Python 3.13.7
+  - Node.js v24.7.0
+  - TypeScript 4.9.5 (via Vercel)
   
 containerization:
-  - Docker Desktop [VERSION]
-  - Docker Compose [VERSION]
+  - Docker Desktop 28.3.3
+  - Docker Compose v2.39.2
   
 editors:
   - VS Code
   - Cursor
-  - [OTHER]
+  - Claude Desktop
+  
+productivity:
+  - Raycast
   
 ai_tools:
   - Claude Desktop
-  - GitHub Copilot
-  - [OTHER]
+  - Cursor AI
+  
+music_production:
+  - Ableton Live 12
+  - Native Instruments
+  - Spitfire Audio
+  - Splice
+  - Control Surface Studio
 ```
 
 ## Local Services
@@ -58,25 +67,33 @@ databases:
 services:
   - n8n (local)
   - Supabase (local)
-  - [OTHER]
+  - Task Master AI (MCP)
+  - MCP Remote Server
 ```
 
 ## Network
 ```yaml
-vpn: [VPN_TOOL]
+vpn: NordVPN
 ports:
   - 3000: Frontend dev
   - 5000: API dev
   - 5432: PostgreSQL
   - 6379: Redis
   - 8080: Admin panels
-  - [OTHER_PORTS]
+  - 54322: Supabase local
 ```
 
 ## File Paths
 ```yaml
-projects: ~/Projects/
+projects: ~/Brain/
 configs: ~/.config/
 ssh_keys: ~/.ssh/
-env_files: [PROJECT]/.env.local
+env_files: ~/Brain/ai-brain/.env
+mcp_config: ~/.mcp.json
 ```
+
+## SSH Keys Available
+- id_ed25519 (main key)
+- github_actions_deploy
+- chat_ai_deploy
+- authorized_keys configured

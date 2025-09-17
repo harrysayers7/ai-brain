@@ -67,3 +67,7 @@ echo -e "${BLUE}Manual maintenance:${NC}"
 echo "  python3 utils/brain_helper.py sync-index"
 echo "  python3 utils/brain_helper.py update-frontmatter"
 echo "  python3 utils/brain_helper.py validate"
+
+
+
+
