@@ -1,3 +1,14 @@
+---
+created: '2025-09-17T17:33:23.122270'
+modified: '2025-09-17T17:33:23.122271'
+ship_factor: 5
+subtype: ai-brain-guides
+tags: []
+title: Git Make Guide
+type: general
+version: 1
+---
+
 ## Basic Operations
 
 | Command           | Description                        |

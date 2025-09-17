@@ -2,7 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-17 17:13:49*
+*Last updated: 2025-09-17 17:33:23*
 
 ## Tools
 
@@ -40,6 +40,7 @@
 
 ### Ai-Brain-Guides
 
+- [Git Make Guide](docs/ai-brain-guides/git-make-guide.md)
 - [Update Commands Guide](docs/ai-brain-guides/makefile-guide.md)
 
 ### Guides
@@ -66,6 +67,7 @@
 ### Rules
 
 - [Infrastructure Guidelines](ai/rules/infrastructure-guidelines.md)
+- [Instructions](ai/rules/shortcuts-rule.md)
 - [Mcp Usage](ai/rules/mcp-usage.md)
 
 ### System-Prompts
@@ -90,8 +92,7 @@
 
 ### Shortcuts
 
-- [General Commands](commands/shortcuts/general-commands.md)
-- [Instructions](commands/shortcuts/INSTRUCTIONS.md)
+- [General Commands](commands/shortcuts/general-shortcuts.md)
 - [Mokai Commands](commands/shortcuts/mokai-commands.md)
 - [N8N Generate Prompt](commands/shortcuts/n8n-generate-prompt.md)
 

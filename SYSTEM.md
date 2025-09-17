@@ -2,7 +2,7 @@
 
 You have access to a knowledge base organized as markdown files. This document defines how to navigate and use this system.
 
-*Last updated: 2025-09-17 16:37:50*
+*Last updated: 2025-09-17 17:33:23*
 
 ## Structure Convention
 
@@ -35,7 +35,6 @@ You have access to a knowledge base organized as markdown files. This document d
 - Include complete frontmatter (see schema below)
 - Update INDEX.md with reference to new file
 - Use descriptive, kebab-case filenames
-- **Personal reference files**: Place in `docs/guides/` for files created for personal reference
 
 ### READ
 - Access directly by path
@@ -115,11 +114,11 @@ references:
 - Use plural for folder names: `decisions` not `decision`
 
 ### Current Patterns
-- **kebab-case**: 32 files
-- **structured**: 31 files
-- **code_blocks**: 28 files
-- **frontmatter**: 67 files
-- **UPPERCASE**: 27 files
+- **kebab-case**: 37 files
+- **frontmatter**: 72 files
+- **structured**: 35 files
+- **code_blocks**: 30 files
+- **UPPERCASE**: 26 files
 - **lowercase**: 19 files
 
 ## Content Guidelines
@@ -160,25 +159,28 @@ references:
 
 ### Available Scripts
 - **utils/brain_helper.py**: AI Brain Helper Utilities
+- **scripts/integrated-updater.py**: Integrated Updater
 - **scripts/system-md-updater.py**: SYSTEM.md Auto-Updater
+- **scripts/context-sync.py**: Context Synchronization
 - **scripts/context-notifier.py**: Context File Notifier
 - **scripts/context-monitor.py**: Context File Monitor
 
 ### Maintenance Commands
 - `help: Show this help message`
 - `install: Install dependencies and setup git hooks`
-- `update: Run complete update cycle`
+- `update: Run complete update cycle (integrated)`
+- `integrated-update: Run integrated update cycle (efficient coordination)`
+- `quick-update: Run quick update for recent changes`
 - `sync-index: Update INDEX.md with current file structure`
 - `update-frontmatter: Update frontmatter in all markdown files`
 - `validate: Validate all files and structure`
 - `test: Run tests and checks`
 - `format: Format all markdown files`
-- `lint: Lint all files for issues`
-- `docs: Generate documentation`
 
 ### Configuration Files
 - `.context-monitor-state.json`
 - `.context-notifier-config.json`
+- `.context-sync-state.json`
 - `Makefile`
 - `infrastructure/local/docker-compose.yml`
 - `infrastructure/local/docker-compose.yml`
