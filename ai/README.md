@@ -9,18 +9,18 @@ The `ai/` folder serves as a **curated collection** of AI instructions that pull
 ## Structure
 
 - **`context/`** - Foundational context information and tech stack overview
-- **`system-prompts/`** - Core system instructions that reference tools/ and infrastructure/
+- **`modes/`** - Different AI modes/personas for various contexts
 - **`rules/`** - Behavioral rules synthesized from multiple source folders
-- **`workflows/`** - Process instructions that combine docs/guides/ and tools/ information
-- **`personas/`** - Different AI personas/modes for various contexts
+- **`system-prompts/`** - Core system instructions that reference tools/ and infrastructure/
 - **`templates/`** - Reusable prompt templates for common patterns
+- **`workflows/`** - Process instructions that combine docs/guides/ and tools/ information
 
 ## How It Works
 
 1. **Source Information**: Detailed info stays in logical folders (`tools/`, `infrastructure/`, `docs/guides/`, etc.)
 2. **Synthesize**: AI context files reference and summarize relevant parts from multiple sources
 3. **Maintain**: Update AI context files when source information changes
-4. **Use**: LLMs reference the `ai-context/` files for comprehensive instructions
+4. **Use**: LLMs reference the `ai/` files for comprehensive instructions
 
 ## File Naming Convention
 
@@ -35,7 +35,7 @@ These files should be updated when:
 - Source information in other folders changes
 - New tools or infrastructure are added
 - Workflows or processes evolve
-- New AI personas or modes are needed
+- New AI modes or personas are needed
 
 ## Note
 

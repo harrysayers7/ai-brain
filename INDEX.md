@@ -2,7 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-17 16:14:24*
+*Last updated: 2025-09-17 17:13:49*
 
 ## Tools
 
@@ -38,9 +38,14 @@
 
 ## Docs
 
+### Ai-Brain-Guides
+
+- [Update Commands Guide](docs/ai-brain-guides/makefile-guide.md)
+
 ### Guides
 
 - [Context 7](docs/guides/mcp-instructions/context-7.md)
+- [Context File Monitoring Automation](docs/guides/context-file-monitoring.md)
 - [Create Mcp Server](docs/guides/mcp-instructions/create-mcp-server.md)
 - [Trigger Dev](docs/guides/trigger-dev/trigger-dev.md)
 
@@ -48,6 +53,7 @@
 
 ### Context
 
+- [Infrastructure Context](ai/context/infrastructure.md)
 - [Mcp Server Application](ai/context/mcp-server-application.md)
 - [Tech Stack](ai/context/tech-stack.md)
 
@@ -75,12 +81,6 @@
 ### Workflows
 
 - [Invoice Processing](ai/workflows/invoice-processing.md)
-
-## Prompts
-
-### Instructions
-
-- [Create Mcp Server](prompts/instructions/create-mcp-server.md)
 
 ## Commands
 
@@ -123,11 +123,29 @@
 
 - [Production](infrastructure/servers/production.md)
 
+## Context-Update-Summary.Md
+
+### General
+
+- [Context Update Summary](CONTEXT-UPDATE-SUMMARY.md)
+
 ## Claude-Instruction-Box.Md
 
 ### General
 
 - [Claude Instruction Box](CLAUDE-INSTRUCTION-BOX.md)
+
+## Integration-Report.Md
+
+### General
+
+- [Integration Report](integration-report.md)
+
+## Codebase-Analysis-Report.Md
+
+### General
+
+- [Codebase Analysis Report](codebase-analysis-report.md)
 
 ## Infrastructure-Map.Md
 

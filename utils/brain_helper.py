@@ -629,7 +629,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
                 
                 # Validate type
                 if 'type' in metadata:
-                    valid_types = ['knowledge', 'behavior', 'system', 'tool', 'general']
+                    valid_types = ['knowledge', 'behavior', 'system', 'tool', 'general', 'guide']
                     if metadata['type'] not in valid_types:
                         warnings.append(f"{md_file}: Unknown type '{metadata['type']}'")
                 

@@ -5,6 +5,36 @@ All notable changes to the AI Brain knowledge base will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Context Updates - 2025-09-17 16:29:05
+
+### Infrastructure Context
+- **File**: `ai/context/infrastructure.md`
+- **Title**: Infrastructure Context
+- **Version**: 1 → 2
+- **Ship Factor**: 5 → 8
+- **Size**: 0 → 570 bytes
+- **Lines**: 1 → 11
+- **Significant Changes**: version bump, ship factor change, significant content change
+
+## Context Updates - 2025-09-17 16:46:51
+
+### Infrastructure Context
+- **File**: `ai/context/infrastructure.md`
+- **Title**: Infrastructure Context
+- **Version**: 2 → 3
+- **Ship Factor**: 8 → 8
+- **Size**: 570 → 2055 bytes
+- **Lines**: 11 → 64
+- **Significant Changes**: version bump, significant content change
+
+### Tech Stack Context
+- **File**: `ai/context/tech-stack.md`
+- **Title**: Tech Stack
+- **Version**: 1 → 1
+- **Ship Factor**: 5 → 5
+- **Size**: 2796 → 2796 bytes
+- **Lines**: 74 → 74
+
 ## [Unreleased]
 
 ### Changed

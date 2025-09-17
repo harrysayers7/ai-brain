@@ -1,7 +1,10 @@
 # AI Brain Maintenance Makefile
 # Automated maintenance and update system for the AI Brain knowledge base
 
-.PHONY: help install update validate test clean sync-index update-frontmatter check-deps format lint docs
+# Include git operations
+include git.mk
+
+.PHONY: help install update validate test clean sync-index update-frontmatter check-deps format lint docs monitor-context watch-context update-system analyze-codebase integrated-update quick-update sync-context
 
 # Default target
 .DEFAULT_GOAL := help
@@ -9,6 +12,10 @@
 # Configuration
 PYTHON := python3
 BRAIN_HELPER := utils/brain_helper.py
+CONTEXT_MONITOR := scripts/context-monitor.py
+SYSTEM_UPDATER := scripts/system-md-updater.py
+INTEGRATED_UPDATER := scripts/integrated-updater.py
+CONTEXT_SYNC := scripts/context-sync.py
 CHANGELOG := CHANGELOG.md
 INDEX_FILE := INDEX.md
 SYSTEM_FILE := SYSTEM.md
@@ -39,8 +46,18 @@ install: ## Install dependencies and setup git hooks
 	@chmod +x .git/hooks/*
 	@echo "$(GREEN)✅ Dependencies installed and hooks configured$(NC)"
 
-update: check-deps sync-index update-frontmatter validate ## Run complete update cycle
+update: check-deps integrated-update ## Run complete update cycle (integrated)
 	@echo "$(GREEN)✅ AI Brain update complete$(NC)"
+
+integrated-update: ## Run integrated update cycle (efficient coordination)
+	@echo "$(BLUE)Running integrated update cycle...$(NC)"
+	@$(PYTHON) $(INTEGRATED_UPDATER) --full
+	@echo "$(GREEN)✅ Integrated update complete$(NC)"
+
+quick-update: ## Run quick update for recent changes
+	@echo "$(BLUE)Running quick update...$(NC)"
+	@$(PYTHON) $(INTEGRATED_UPDATER) --quick
+	@echo "$(GREEN)✅ Quick update complete$(NC)"
 
 sync-index: ## Update INDEX.md with current file structure
 	@echo "$(BLUE)Syncing INDEX.md...$(NC)"
@@ -77,6 +94,30 @@ docs: ## Generate documentation
 	@$(PYTHON) $(BRAIN_HELPER) generate-docs
 	@echo "$(GREEN)✅ Documentation generated$(NC)"
 
+monitor-context: ## Check for context file changes and update changelog
+	@echo "$(BLUE)Monitoring context files...$(NC)"
+	@$(PYTHON) $(CONTEXT_MONITOR)
+	@echo "$(GREEN)✅ Context monitoring complete$(NC)"
+
+watch-context: ## Watch context files for changes (continuous monitoring)
+	@echo "$(BLUE)Starting context file watcher...$(NC)"
+	@$(PYTHON) $(CONTEXT_MONITOR) --watch
+
+update-system: ## Update SYSTEM.md based on current codebase state
+	@echo "$(BLUE)Updating SYSTEM.md...$(NC)"
+	@$(PYTHON) $(SYSTEM_UPDATER) --update
+	@echo "$(GREEN)✅ SYSTEM.md updated$(NC)"
+
+analyze-codebase: ## Generate detailed codebase analysis report
+	@echo "$(BLUE)Analyzing codebase...$(NC)"
+	@$(PYTHON) $(SYSTEM_UPDATER) --analyze
+	@echo "$(GREEN)✅ Codebase analysis complete$(NC)"
+
+sync-context: ## Synchronize context files with their source directories
+	@echo "$(BLUE)Synchronizing context files...$(NC)"
+	@$(PYTHON) $(CONTEXT_SYNC) --sync
+	@echo "$(GREEN)✅ Context synchronization complete$(NC)"
+
 check-deps: ## Check if dependencies are installed
 	@echo "$(BLUE)Checking dependencies...$(NC)"
 	@$(PYTHON) -c "import frontmatter, yaml" 2>/dev/null || (echo "$(RED)❌ Missing dependencies. Run 'make install'$(NC)" && exit 1)
@@ -93,7 +134,7 @@ clean: ## Clean temporary files
 pre-commit: validate format lint ## Run pre-commit checks
 	@echo "$(GREEN)✅ Pre-commit checks passed$(NC)"
 
-post-commit: update ## Run post-commit updates
+post-commit: monitor-context update ## Run post-commit updates
 	@echo "$(GREEN)✅ Post-commit updates complete$(NC)"
 
 # Maintenance targets

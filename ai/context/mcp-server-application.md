@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.648575'
-modified: '2025-09-17T16:14:24.440106'
+modified: '2025-09-17T17:15:05.728352'
 ship_factor: 5
 subtype: claude-desktop
 tags: []
@@ -8,6 +8,8 @@ title: Mcp Server Application
 type: behavior
 version: 1
 ---
+
+# MCP SERVER USAGE - When to use
 
 You have access to MCP servers so if MCP tools are available please use them using the below rules for each MCP tool. 
 
@@ -17,6 +19,7 @@ Use Context7 only when:
 2. You're unsure if your knowledge about a specific tool/API is current
 3. User mentions recent releases or asks "what's new"
 
+GitHub MCP:
 
 Notion MCP:
 
