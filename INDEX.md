@@ -2,7 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-17 15:26:22*
+*Last updated: 2025-09-17 15:33:51*
 
 ## Prompts
 
@@ -92,14 +92,3 @@
 
 - [N8N Mcp](commands/slash-commands/n8n-mcp.md)
 - [Slash Commands](commands/slash-commands/slash-commands.md)
-
-## Instructions
-
-### Mcp-Instructions
-
-- [Context 7](instructions/mcp-instructions/context-7.md)
-- [Create Mcp Server](instructions/mcp-instructions/create-mcp-server.md)
-
-### Trigger-Dev
-
-- [Trigger Dev](instructions/trigger-dev/trigger-dev.md)
