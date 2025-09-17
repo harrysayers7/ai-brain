@@ -1,6 +1,6 @@
 ---
 created: '2025-09-16T15:05:15.610623'
-modified: '2025-09-17T15:33:51.704262'
+modified: '2025-09-17T15:35:16.595321'
 ship_factor: 5
 tags: []
 title: Claude Instruction Box
