@@ -63,8 +63,7 @@ class BrainHelper:
             "instructions/mcp-instructions",
             "instructions/trigger-dev",
             
-            # Prompts
-            "prompts",
+            # Prompts (removed - no longer needed)
             
             # Utils
             "utils"
@@ -585,7 +584,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         
         # Check required directories exist
         required_dirs = [
-            "knowledge", "prompts", "systems", "tools", 
+            "knowledge", "systems", "tools", 
             "infrastructure", "commands", "instructions"
         ]
         
