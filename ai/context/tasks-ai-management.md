@@ -15,9 +15,15 @@ You have access to my notion task management Database. I use this to track my ta
 
 Database Name: Tasks AI
 
-Database ID: bb278d48-954a-4c93-85b7-88bd4979f467
+## Task Creation Guide for Tasks AI
 
+To create a task, use:
 Data Source ID: b105e972-10ba-4c45-b349-0105fd107cca
+
+### Minimal task creation:
+- Use parent: {"data_source_id": "b105e972-10ba-4c45-b349-0105fd107cca"}
+- Only required property: {"title": "Task name here"}
+- Update properties after creation if needed
 
 ### Task AI Properties overview and rules
 
