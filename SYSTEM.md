@@ -2,18 +2,21 @@
 
 You have access to a knowledge base organized as markdown files. This document defines how to navigate and use this system.
 
+*Last updated: 2025-09-17 16:37:50*
+
 ## Structure Convention
 
 - All files are markdown with YAML frontmatter
 - Paths indicate type and purpose:
-  - `knowledge/decisions/` = architectural and technical decisions
-  - `knowledge/lessons/` = learned experiences and anti-patterns
-  - `knowledge/references/` = quick reference guides and cheat sheets
-  - `prompts/personas/` = AI personality definitions
-  - `prompts/modes/` = operational modes (e.g., debug, production)
-  - `systems/workflows/` = step-by-step processes
-  - `systems/rules/` = governance and constraints
-  - `tools/integrations/` = external tool configurations
+  - `tools/` = ## Purpose
+  - `utils/` = Utility functions and helpers
+  - `docs/` = This directory contains all documentation and guides for the AI Brain system.
+  - `knowledge/` = This directory contains all accumulated knowledge, decisions, and learnings.
+  - `ai/` = This directory contains **synthesized AI instructions** that are derived from and reference information stored in other folders throughout the AI Brain repository.
+  - `scripts/` = Automation and utility scripts
+  - `commands/` = Command definitions and shortcuts
+  - `systems/` = ## Purpose
+  - `infrastructure/` = Infrastructure definitions and server configurations
 - Newer files override older ones (check `modified` date in frontmatter)
 - References use relative paths: `[link text](knowledge/decisions/example.md)`
 
@@ -32,6 +35,7 @@ You have access to a knowledge base organized as markdown files. This document d
 - Include complete frontmatter (see schema below)
 - Update INDEX.md with reference to new file
 - Use descriptive, kebab-case filenames
+- **Personal reference files**: Place in `docs/guides/` for files created for personal reference
 
 ### READ
 - Access directly by path
@@ -91,9 +95,10 @@ references:
 ## Quick Lookup Patterns
 
 - **Recent decisions**: Sort by `modified` in `knowledge/decisions/`
+- **Active workflows**: `systems/workflows/` where `deprecated: false`
+- **Quick references**: `knowledge/references/` with tag `reference`
 - **High-priority items**: Search for `ship_factor: [8-10]`
 - **Anti-patterns**: Check `knowledge/lessons/` with tag `anti-pattern`
-- **Active workflows**: `systems/workflows/` where `deprecated: false`
 - **Current tech stack**: `tools/integrations/` with tag `active`
 
 ## Naming Conventions
@@ -108,6 +113,14 @@ references:
 - Keep hierarchy shallow (max 3 levels)
 - Group by function, not by project
 - Use plural for folder names: `decisions` not `decision`
+
+### Current Patterns
+- **kebab-case**: 32 files
+- **structured**: 31 files
+- **code_blocks**: 28 files
+- **frontmatter**: 67 files
+- **UPPERCASE**: 27 files
+- **lowercase**: 19 files
 
 ## Content Guidelines
 
@@ -143,32 +156,32 @@ references:
 - Compatible with Obsidian, VS Code, etc.
 - Preview supported on GitHub
 
-## Changelog Management
+## Automation & Scripts
 
-### Automatic Updates
-- **On every git commit**: Update CHANGELOG.md with changes
-- **Format**: Use [Keep a Changelog](https://keepachangelog.com/) format
-- **Timestamp**: Include ISO-8601 timestamp for each entry
-- **Categories**: Added, Changed, Deprecated, Removed, Fixed, Security
+### Available Scripts
+- **utils/brain_helper.py**: AI Brain Helper Utilities
+- **scripts/system-md-updater.py**: SYSTEM.md Auto-Updater
+- **scripts/context-notifier.py**: Context File Notifier
+- **scripts/context-monitor.py**: Context File Monitor
 
-### Changelog Entry Template
-```markdown
-## [Unreleased]
+### Maintenance Commands
+- `help: Show this help message`
+- `install: Install dependencies and setup git hooks`
+- `update: Run complete update cycle`
+- `sync-index: Update INDEX.md with current file structure`
+- `update-frontmatter: Update frontmatter in all markdown files`
+- `validate: Validate all files and structure`
+- `test: Run tests and checks`
+- `format: Format all markdown files`
+- `lint: Lint all files for issues`
+- `docs: Generate documentation`
 
-### Added
-- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of new feature
-
-### Changed
-- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of change
-
-### Fixed
-- [Timestamp: YYYY-MM-DDTHH:MM:SSZ] Description of bug fix
-```
-
-### Git Hook Integration
-- Pre-commit hook: Validate changelog format
-- Post-commit hook: Auto-update changelog with commit details
-- Commit message parsing: Extract change type from conventional commits
+### Configuration Files
+- `.context-monitor-state.json`
+- `.context-notifier-config.json`
+- `Makefile`
+- `infrastructure/local/docker-compose.yml`
+- `infrastructure/local/docker-compose.yml`
 
 ## Maintenance Tasks
 
@@ -176,15 +189,18 @@ references:
 - Update INDEX.md with new additions
 - Check for deprecated items past expiry
 - Verify changelog is updated with recent changes
+- Review context file changes in CHANGELOG.md
 
 ### Weekly
 - Review high ship factor items
 - Archive completed decisions
 - Update tool configurations
 - Consolidate changelog entries
+- Check context file monitoring logs
 
 ### Monthly
 - Consolidate duplicate knowledge
 - Update deprecated references
 - Review and clean up tags
 - Release new version and update changelog
+- Review context file change patterns
