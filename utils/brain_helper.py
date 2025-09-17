@@ -59,9 +59,7 @@ class BrainHelper:
             "commands/macros",
             "commands/slash-commands",
             
-            # Instructions
-            "instructions/mcp-instructions",
-            "instructions/trigger-dev",
+            # Instructions (removed - content moved to docs/guides/)
             
             # Prompts (removed - no longer needed)
             
@@ -585,7 +583,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         # Check required directories exist
         required_dirs = [
             "knowledge", "systems", "tools", 
-            "infrastructure", "commands", "instructions"
+            "infrastructure", "commands"
         ]
         
         for dir_name in required_dirs:
