@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Documentation explaining the context directory structure and purpose
+Usage: Human reference for understanding AI instruction file organization
+Target: Human users managing the AI Brain system
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 # Context Directory
 
 This directory contains foundational context information that provides background and reference material for AI assistants.

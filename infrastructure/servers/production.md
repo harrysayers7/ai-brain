@@ -43,9 +43,12 @@ containerization:
 applications:
   location: /opt/
   installed:
-    - erpnext
-    - n8n
-    - supabase
+    - name: erpnext
+      domain: admin.sayers.app
+    - name: n8n
+      domain: n8n.sayers.app
+    - name: supabase
+      domain: supa.sayers.app
 
 web_server:
   preferred: Caddy

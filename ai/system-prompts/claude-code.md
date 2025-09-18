@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Core system instructions for Claude Code (VS Code extension) integration and development operations
+Usage: Inserted into Claude Code configuration or used as system prompt for VS Code development interactions
+Target: Claude Code, Cursor, other VS Code-based AI systems
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:12:32.928402'
 modified: '2025-09-18T06:32:12.381927'

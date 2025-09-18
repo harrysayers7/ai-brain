@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: File-based instruction system for Claude with clear separation between instructions and knowledge files
+Usage: Manually placed inside Claude project instructions box for file processing rules
+Target: Claude Desktop, other Claude-based AI systems for instruction file organization
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.610623'
 modified: '2025-09-18T06:32:12.350303'
@@ -55,3 +62,4 @@ Follow the behavioral patterns defined in instruction files while using knowledg
 ```
 
 This system ensures efficient processing while maintaining access to comprehensive knowledge when needed.
+

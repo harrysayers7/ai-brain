@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: High-level infrastructure context about servers, databases, and deployment configurations
+Usage: Referenced by system prompts and other AI instruction files for infrastructure-aware operations
+Target: All AI systems in the AI Brain ecosystem for server and deployment context
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:30:00.000000'
 modified: '2025-09-18T06:32:12.377814'

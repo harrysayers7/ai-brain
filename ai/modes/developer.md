@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral mode definition for developer-focused AI interactions and code assistance
+Usage: Loaded when developer context is needed in AI conversations
+Target: Claude Desktop, ChatGPT, other conversational AI systems for development tasks
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:12:32.926614'
 modified: '2025-09-18T06:32:12.380165'

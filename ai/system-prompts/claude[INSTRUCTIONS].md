@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Claude Desktop integration instructions with auto-capture triggers and repository navigation rules
+Usage: Inserted into Claude Desktop configuration for automated AI Brain repository interactions
+Target: Claude Desktop for automated content capture and repository management
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.649028'
 modified: '2025-09-18T06:32:12.382243'

@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Documentation explaining the AI directory structure and purpose for synthesized AI instructions
+Usage: Human reference for understanding AI instruction file organization and maintenance
+Target: Human users managing the AI Brain system and creating AI instruction files
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 # AI Directory
 
 This directory contains **synthesized AI instructions** that are derived from and reference information stored in other folders throughout the AI Brain repository.

@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Task management system integration with Notion database for AI assistants
+Usage: Referenced by system prompts and other AI instruction files for task creation workflows
+Target: Claude Desktop, ChatGPT, other AI systems with Notion integration capabilities
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-18T06:32:12.377360'
 modified: '2025-09-18T06:32:12.377367'

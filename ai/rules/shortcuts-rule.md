@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Instructions for handling shortcut commands (starting with !) in AI Brain repository interactions
+Usage: Referenced by system prompts and other AI instruction files for command processing
+Target: Claude Desktop, ChatGPT, other AI systems for repository interaction commands
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.643892'
 modified: '2025-09-18T06:32:12.383209'

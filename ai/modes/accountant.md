@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral mode definition for Australian financial education and analysis assistance
+Usage: Loaded when financial/accounting context is needed in AI conversations
+Target: Claude Desktop, ChatGPT, other conversational AI systems for financial guidance
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.647702'
 modified: '2025-09-18T06:32:12.380829'

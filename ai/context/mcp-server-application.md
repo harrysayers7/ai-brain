@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Guidelines for when and how to use different MCP servers in AI interactions
+Usage: Referenced by system prompts and other AI instruction files for MCP server usage rules
+Target: Claude Desktop, Cursor, other AI systems with MCP server access
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.648575'
 modified: '2025-09-18T06:32:12.376094'

@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral rules for Model Context Protocol (MCP) server usage and error handling
+Usage: Referenced by system prompts and other AI instruction files for MCP server operations
+Target: Claude Desktop, Cursor, other AI systems with MCP server access
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:12:32.929721'
 modified: '2025-09-18T06:32:12.385067'

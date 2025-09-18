@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Template for code generation workflows and development process guidance
+Usage: Referenced by system prompts and other AI instruction files for structured code development
+Target: Claude Desktop, ChatGPT, other AI systems for code generation and development assistance
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:12:32.929948'
 modified: '2025-09-18T06:32:12.385507'

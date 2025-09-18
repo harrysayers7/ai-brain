@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral rules for infrastructure management and deployment operations
+Usage: Referenced by system prompts and other AI instruction files for infrastructure-aware operations
+Target: Claude Desktop, ChatGPT, other AI systems for infrastructure and deployment guidance
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-17T16:12:32.929501'
 modified: '2025-09-18T06:32:12.384547'

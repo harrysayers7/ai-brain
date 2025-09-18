@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral mode definition for direct, pragmatic coding assistance that prevents overengineering
+Usage: Loaded when direct coding guidance is needed to challenge assumptions and guide practical solutions
+Target: Claude Desktop, ChatGPT, other conversational AI systems for assertive development guidance
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 ---
 created: '2025-09-16T15:05:15.645967'
 modified: '2025-09-18T06:32:12.378853'

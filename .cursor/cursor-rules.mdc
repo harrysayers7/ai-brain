@@ -5,3 +5,68 @@ alwaysApply: true
 ---
 
 Always follow the instructions in /Users/harrysayers/Brain/ai-brain/SYSTEM.md when interacting with /Users/harrysayers/Brain/ai-brain
+
+
+# AI Instruction File Formatting Rules
+
+## HTML Comment Descriptions
+
+**MANDATORY**: All files in the `ai/` directory (including subdirectories) MUST have a human-readable HTML comment description at the top of the file, before any YAML frontmatter.
+
+### Required Format:
+```html
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: [Brief description of what this file does]
+Usage: [Where/how this file is used - e.g., "Inserted into Claude Desktop configuration"]
+Target: [Which AI systems use this - e.g., "Claude Desktop, ChatGPT, other LLMs"]
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
+```
+
+### Implementation Rules:
+1. **All existing files** in `ai/` directory must be updated with HTML comments
+2. **All new files** added to `ai/` directory must include HTML comments
+3. **Placement**: HTML comment must be the very first content in the file
+4. **Content**: Must include Purpose, Usage, and Target fields
+5. **AI Instruction**: Must include clear directive for AI to ignore the section
+
+### Examples:
+
+#### For System Prompts:
+```html
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Core system instructions for Claude Desktop integration
+Usage: Inserted into Claude Desktop configuration file
+Target: Claude Desktop, Cursor, other Claude-based AI systems
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
+```
+
+#### For Context Files:
+```html
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Foundational context about infrastructure setup and server configurations
+Usage: Referenced by system prompts and other AI instruction files
+Target: All AI systems in the AI Brain ecosystem
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
+```
+
+#### For Mode Files:
+```html
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Behavioral mode definition for developer-focused AI interactions
+Usage: Loaded when developer context is needed in AI conversations
+Target: Claude Desktop, ChatGPT, other conversational AI systems
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
+```
+
+### Enforcement:
+- Files without HTML comments should be flagged for immediate update
+- New files added to `ai/` directory must be rejected if missing HTML comments
+- HTML comments should be maintained and updated when file purpose changes

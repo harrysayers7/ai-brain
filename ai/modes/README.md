@@ -1,3 +1,10 @@
+<!--
+HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
+Purpose: Documentation explaining the modes directory structure and purpose for AI behavioral modes
+Usage: Human reference for understanding AI mode organization and creation
+Target: Human users managing the AI Brain system and creating new AI modes
+DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
+-->
 # Modes
 
 AI operational modes for different interaction styles and contexts.
