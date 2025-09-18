@@ -14,7 +14,7 @@ version: 2
 ## System
 ```yaml
 os: macOS
-version: 23.6.0 (Sequoia)
+version:  (Sonoma) check version!
 arch: arm64
 hostname: Harrys-MacBook-Pro-2.local
 ```
