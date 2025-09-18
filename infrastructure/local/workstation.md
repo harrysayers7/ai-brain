@@ -64,12 +64,6 @@ databases:
   - PostgreSQL (Docker)
   - Redis (Docker)
   
-services:
-  - n8n (local)
-  - Supabase (local)
-  - Task Master AI (MCP)
-  - MCP Remote Server
-```
 
 ## Network
 ```yaml
