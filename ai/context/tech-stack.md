@@ -5,16 +5,6 @@ Usage: Referenced by system prompts and other AI instruction files for tool and 
 Target: All AI systems in the AI Brain ecosystem for comprehensive tech stack awareness
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-16T15:05:15.615144'
-modified: '2025-09-18T06:32:12.376393'
-ship_factor: 5
-subtype: context
-tags: []
-title: Tech Stack
-type: general
-version: 1
----
 
 # Tech Stack Overview
 

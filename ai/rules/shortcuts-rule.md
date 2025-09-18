@@ -5,16 +5,6 @@ Usage: Referenced by system prompts and other AI instruction files for command p
 Target: Claude Desktop, ChatGPT, other AI systems for repository interaction commands
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-16T15:05:15.643892'
-modified: '2025-09-18T06:32:12.383209'
-ship_factor: 5
-subtype: shortcuts
-tags: []
-title: Instructions
-type: general
-version: 1
----
 
 # ! Shortcut Command Instructions for LLMs
 

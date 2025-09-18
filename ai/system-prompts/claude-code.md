@@ -5,16 +5,6 @@ Usage: Inserted into Claude Code configuration or used as system prompt for VS C
 Target: Claude Code, Cursor, other VS Code-based AI systems
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-17T16:12:32.928402'
-modified: '2025-09-18T06:32:12.381927'
-ship_factor: 5
-subtype: system-prompts
-tags: []
-title: Claude Code
-type: general
-version: 1
----
 
 # Claude Code System Prompt
 

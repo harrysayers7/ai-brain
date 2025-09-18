@@ -5,15 +5,6 @@ Usage: Manually placed inside Claude project instructions box for file processin
 Target: Claude Desktop, other Claude-based AI systems for instruction file organization
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-16T15:05:15.610623'
-modified: '2025-09-18T06:32:12.350303'
-ship_factor: 5
-tags: []
-title: Claude Instruction Box
-type: general
-version: 1
----
 
 This file is to be manually placed inside claude project instructions box. Any LLM should ignore this file as it is for human use only!
 
@@ -62,4 +53,3 @@ Follow the behavioral patterns defined in instruction files while using knowledg
 ```
 
 This system ensures efficient processing while maintaining access to comprehensive knowledge when needed.
-

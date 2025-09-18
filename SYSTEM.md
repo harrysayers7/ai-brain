@@ -2,7 +2,7 @@
 
 You have access to a knowledge base organized as markdown files. This document defines how to navigate and use this system.
 
-*Last updated: 2025-09-18 06:32:12*
+*Last updated: 2025-09-18 19:22:51*
 
 ## Structure Convention
 
@@ -12,7 +12,7 @@ You have access to a knowledge base organized as markdown files. This document d
   - `utils/` = Utility functions and helpers
   - `docs/` = This directory contains all documentation and guides for the AI Brain system.
   - `knowledge/` = This directory contains all accumulated knowledge, decisions, and learnings.
-  - `ai/` = This directory contains **synthesized AI instructions** that are derived from and reference information stored in other folders throughout the AI Brain repository.
+  - `ai/` = Purpose: Documentation explaining the AI directory structure and purpose for synthesized AI instructions
   - `scripts/` = Automation and utility scripts
   - `commands/` = Command definitions and shortcuts
   - `systems/` = ## Purpose
@@ -116,9 +116,9 @@ references:
 ### Current Patterns
 - **kebab-case**: 38 files
 - **structured**: 36 files
-- **code_blocks**: 30 files
-- **frontmatter**: 71 files
+- **frontmatter**: 72 files
 - **UPPERCASE**: 26 files
+- **code_blocks**: 31 files
 - **lowercase**: 19 files
 
 ## Content Guidelines

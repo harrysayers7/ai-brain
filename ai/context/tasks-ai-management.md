@@ -5,16 +5,6 @@ Usage: Referenced by system prompts and other AI instruction files for task crea
 Target: Claude Desktop, ChatGPT, other AI systems with Notion integration capabilities
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-18T06:32:12.377360'
-modified: '2025-09-18T06:32:12.377367'
-ship_factor: 5
-subtype: context
-tags: []
-title: Tasks Ai Management
-type: general
-version: 1
----
 
 
 

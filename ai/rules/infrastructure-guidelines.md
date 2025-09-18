@@ -5,16 +5,6 @@ Usage: Referenced by system prompts and other AI instruction files for infrastru
 Target: Claude Desktop, ChatGPT, other AI systems for infrastructure and deployment guidance
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-17T16:12:32.929501'
-modified: '2025-09-18T06:32:12.384547'
-ship_factor: 5
-subtype: rules
-tags: []
-title: Infrastructure Guidelines
-type: general
-version: 1
----
 
 # Infrastructure Guidelines
 

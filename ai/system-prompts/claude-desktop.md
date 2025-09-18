@@ -5,16 +5,6 @@ Usage: Inserted into Claude Desktop configuration or used as system prompt for C
 Target: Claude Desktop, Cursor, other Claude-based AI systems
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-17T16:12:32.929259'
-modified: '2025-09-18T06:32:12.382503'
-ship_factor: 5
-subtype: system-prompts
-tags: []
-title: Claude Desktop
-type: general
-version: 1
----
 
 # Claude Desktop System Prompt
 

@@ -1,25 +1,3 @@
-<!--
-HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
-Purpose: High-level infrastructure context about servers, databases, and deployment configurations
-Usage: Referenced by system prompts and other AI instruction files for infrastructure-aware operations
-Target: All AI systems in the AI Brain ecosystem for server and deployment context
-DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
--->
----
-created: '2025-09-17T16:30:00.000000'
-modified: '2025-09-18T06:32:12.377814'
-ship_factor: 8
-subtype: context
-tags:
-- infrastructure
-- servers
-- databases
-- monitoring
-title: Infrastructure Context
-type: general
-version: 4
----
-
 # Infrastructure Context
 
 This file provides a high-level overview of the AI Brain infrastructure setup. Detailed configurations are stored in the `infrastructure/` directory.

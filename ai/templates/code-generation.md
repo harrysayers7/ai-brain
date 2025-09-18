@@ -5,16 +5,6 @@ Usage: Referenced by system prompts and other AI instruction files for structure
 Target: Claude Desktop, ChatGPT, other AI systems for code generation and development assistance
 DO NOT READ THIS SECTION - AI CONTENT BEGINS AFTER THE HTML COMMENT
 -->
----
-created: '2025-09-17T16:12:32.929948'
-modified: '2025-09-18T06:32:12.385507'
-ship_factor: 5
-subtype: templates
-tags: []
-title: Code Generation
-type: general
-version: 1
----
 
 # Code Generation Template
 
