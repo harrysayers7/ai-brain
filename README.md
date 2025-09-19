@@ -9,7 +9,7 @@ This repository serves as a centralized knowledge base for AI-assisted developme
 - **Human-readable**: Edit with any text editor
 - **LLM-optimized**: Structured for AI consumption via CRUD operations
 - **Git-friendly**: Track changes and collaborate
-- **Tool-agnostic**: Works with Dify, Obsidian, VS Code, etc.
+- **Tool-agnostic**: Works with Dify, claude code, VS Code,cursor etc.
 
 ## 🚀 Quick Start
 
