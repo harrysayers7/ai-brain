@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.087838'
+modified: '2025-09-19T06:58:56.087843'
+ship_factor: 5
+subtype: system-prompts
+tags: []
+title: Claude Code
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Core system instructions for Claude Code (VS Code extension) integration and development operations

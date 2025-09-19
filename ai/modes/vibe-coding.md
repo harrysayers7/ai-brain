@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.083637'
+modified: '2025-09-19T06:58:56.083641'
+ship_factor: 5
+subtype: modes
+tags: []
+title: Vibe Coding
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Behavioral mode definition for direct, pragmatic coding assistance that prevents overengineering

@@ -2,7 +2,7 @@
 
 > Auto-generated index of all knowledge base files
 
-*Last updated: 2025-09-18 19:22:51*
+*Last updated: 2025-09-19 09:52:05*
 
 ## Tools
 
@@ -14,27 +14,20 @@
 
 - [Databases](tools/integrations/notion/databases.md)
 
-### Mcp-Servers
-
-- [Chrome Mcp](tools/mcp-servers/chrome-mcp.md)
-- [Context 7](tools/mcp-servers/context-7.md)
-- [Dify Mcp Connector](tools/mcp-servers/dify-mcp-connector.md)
-- [Docker](tools/mcp-servers/docker.md)
-- [Fastapi Mcp](tools/mcp-servers/fastapi-mcp.md)
-- [Fastmcp](tools/mcp-servers/fastmcp.md)
-- [Github](tools/mcp-servers/github.md)
-- [Graphiti](tools/mcp-servers/graphiti.md)
-- [Mindsdb](tools/mcp-servers/mindsdb.md)
-- [N8N](tools/mcp-servers/n8n.md)
-- [Notion](tools/mcp-servers/notion.md)
-- [Playwright](tools/mcp-servers/playwright.md)
-- [Slack](tools/mcp-servers/slack.md)
-- [Supabase](tools/mcp-servers/supabase.md)
-- [Taskmaster](tools/mcp-servers/taskmaster.md)
-
 ### Trigger-Dev.Md
 
 - [Trigger Dev](tools/trigger-dev.md)
+
+## Archive
+
+### Original-Structure
+
+- [Dev Tools](archive/original-structure/dev-tools.md)
+- [Env Comprehensive Template](archive/original-structure/env-comprehensive-template.md)
+- [Env Template](archive/original-structure/env-template.md)
+- [Production](archive/original-structure/production.md)
+- [Supabase](archive/original-structure/supabase.md)
+- [Workstation](archive/original-structure/workstation.md)
 
 ## Docs
 
@@ -111,20 +104,53 @@
 
 ## Infrastructure
 
-### Databases
+### Environments
 
-- [Supabase](infrastructure/databases/supabase.md)
+- [Dev Tools](infrastructure/environments/local/dev-tools.md)
+- [Env Comprehensive Template](infrastructure/environments/local/env-comprehensive-template.md)
+- [Env Template](infrastructure/environments/local/env-template.md)
+- [Production](infrastructure/environments/production/production.md)
+- [Staging Server](infrastructure/environments/staging/server.md)
+- [Workstation](infrastructure/environments/local/workstation.md)
 
-### Local
+### Infrastructure-Overview.Md
 
-- [Dev Tools](infrastructure/local/dev-tools.md)
-- [Env Comprehensive Template](infrastructure/local/env-comprehensive-template.md)
-- [Env Template](infrastructure/local/env-template.md)
-- [Workstation](infrastructure/local/workstation.md)
+- [Infrastructure Overview](infrastructure/INFRASTRUCTURE-OVERVIEW.md)
 
-### Servers
+### Networking
 
-- [Production](infrastructure/servers/production.md)
+- [Network Ports Configuration](infrastructure/networking/ports.md)
+
+### Security
+
+- [SSH Keys Configuration](infrastructure/security/ssh-keys.md)
+- [SSL/TLS Certificates](infrastructure/security/certificates.md)
+
+### Services
+
+- [AWS Configuration](infrastructure/services/cloud/aws.md)
+- [Chrome Mcp](infrastructure/services/mcp/mcp-servers/chrome-mcp.md)
+- [Cloudflare Configuration](infrastructure/services/cloud/cloudflare.md)
+- [Context 7](infrastructure/services/mcp/mcp-servers/context-7.md)
+- [Dify Mcp Connector](infrastructure/services/mcp/mcp-servers/dify-mcp-connector.md)
+- [Docker](infrastructure/services/mcp/mcp-servers/docker.md)
+- [Fastapi Mcp](infrastructure/services/mcp/mcp-servers/fastapi-mcp.md)
+- [Fastmcp](infrastructure/services/mcp/mcp-servers/fastmcp.md)
+- [Github](infrastructure/services/mcp/mcp-servers/github.md)
+- [Graphiti](infrastructure/services/mcp/mcp-servers/graphiti.md)
+- [MCP Servers Configuration](infrastructure/services/mcp/mcp-servers.md)
+- [MCP Servers Monitoring](infrastructure/services/mcp/monitoring.md)
+- [Mindsdb](infrastructure/services/mcp/mcp-servers/mindsdb.md)
+- [N8N](infrastructure/services/mcp/mcp-servers/n8n.md)
+- [Notion](infrastructure/services/mcp/mcp-servers/notion.md)
+- [Playwright](infrastructure/services/mcp/mcp-servers/playwright.md)
+- [PostgreSQL Configuration](infrastructure/services/databases/postgresql.md)
+- [Redis Configuration](infrastructure/services/databases/redis.md)
+- [Slack](infrastructure/services/mcp/mcp-servers/slack.md)
+- [Supabase](infrastructure/services/databases/supabase.md)
+- [Supabase](infrastructure/services/mcp/mcp-servers/supabase.md)
+- [Taskmaster](infrastructure/services/mcp/mcp-servers/taskmaster.md)
+- [Vercel Configuration](infrastructure/services/cloud/vercel.md)
 
 ## Context-Update-Summary.Md
 

@@ -62,6 +62,7 @@ class IntegratedUpdater:
             'context': False,
             'context_sync': False,
             'system': False,
+            'infrastructure': False,
             'validation': False
         }
         
@@ -90,6 +91,11 @@ class IntegratedUpdater:
             changes = self.context_monitor.check_changes()
             if changes:
                 self.update_needed['context'] = True
+        
+        # Check infrastructure overview age
+        infra_overview = self.root / "infrastructure" / "INFRASTRUCTURE-OVERVIEW.md"
+        if not infra_overview.exists() or infra_overview.stat().st_mtime < recent_threshold:
+            self.update_needed['infrastructure'] = True
         
         # Always check frontmatter, context sync, and validation
         self.update_needed['frontmatter'] = True
@@ -175,6 +181,26 @@ class IntegratedUpdater:
         self.system_updater.update_system_md()
         print("✅ SYSTEM.md updated")
     
+    def update_infrastructure_overview(self):
+        """Update infrastructure overview using infrastructure scanner"""
+        if not self.update_needed['infrastructure']:
+            print("⏭️  Skipping infrastructure overview update (not needed)")
+            return
+        
+        print("📝 Updating infrastructure overview...")
+        try:
+            import subprocess
+            result = subprocess.run([
+                'python3', 'scripts/infrastructure-scanner.py', '--scan'
+            ], capture_output=True, text=True, cwd=str(self.root))
+            
+            if result.returncode == 0:
+                print("✅ Infrastructure overview updated")
+            else:
+                print(f"⚠️  Infrastructure update had issues: {result.stderr}")
+        except Exception as e:
+            print(f"⚠️  Could not update infrastructure overview: {e}")
+    
     def validate_system(self):
         """Validate the entire system"""
         if not self.update_needed['validation']:
@@ -204,7 +230,8 @@ class IntegratedUpdater:
         self.sync_context_files()  # Then sync context files with source directories
         self.update_index()        # Then update index
         self.update_context_monitoring()  # Then handle context changes
-        self.update_system_md()    # Finally update system documentation
+        self.update_system_md()    # Update system documentation
+        self.update_infrastructure_overview()  # Update infrastructure overview
         
         # Validate everything
         validation_success = self.validate_system()

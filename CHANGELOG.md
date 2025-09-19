@@ -91,6 +91,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Lines**: 74 → 92
 - **Significant Changes**: significant content change
 
+## Context Updates - 2025-09-18 19:27:00
+
+### Infrastructure Context
+- **File**: `ai/context/infrastructure.md`
+- **Title**: 
+- **Version**: 1 → 1
+- **Ship Factor**: 5 → 5
+- **Size**: 2576 → 1933 bytes
+- **Lines**: 88 → 66
+- **Significant Changes**: significant content change
+
+### Tech Stack Context
+- **File**: `ai/context/tech-stack.md`
+- **Title**: 
+- **Version**: 1 → 1
+- **Ship Factor**: 5 → 5
+- **Size**: 3210 → 3041 bytes
+- **Lines**: 92 → 82
+- **Significant Changes**: significant content change
+
 ## [Unreleased]
 
 ### Changed

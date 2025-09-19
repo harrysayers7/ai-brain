@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.082291'
+modified: '2025-09-19T06:58:56.082293'
+ship_factor: 5
+subtype: context
+tags: []
+title: Tasks Ai Management
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Task management system integration with Notion database for AI assistants

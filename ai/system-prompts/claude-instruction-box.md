@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.090065'
+modified: '2025-09-19T06:58:56.090070'
+ship_factor: 5
+subtype: system-prompts
+tags: []
+title: Claude Instruction Box
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: File-based instruction system for Claude with clear separation between instructions and knowledge files

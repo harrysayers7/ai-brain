@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.092797'
+modified: '2025-09-19T06:58:56.092801'
+ship_factor: 5
+subtype: rules
+tags: []
+title: Shortcuts Rule
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Instructions for handling shortcut commands (starting with !) in AI Brain repository interactions

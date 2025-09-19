@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.086177'
+modified: '2025-09-19T06:58:56.086180'
+ship_factor: 5
+subtype: workflows
+tags: []
+title: Invoice Processing
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Invoice processing workflow context for AI assistants handling ESM PO Processing pipeline

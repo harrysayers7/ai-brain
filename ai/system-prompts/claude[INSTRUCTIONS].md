@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.091414'
+modified: '2025-09-19T06:58:56.091419'
+ship_factor: 5
+subtype: system-prompts
+tags: []
+title: Claude[Instructions]
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Claude Desktop integration instructions with auto-capture triggers and repository navigation rules

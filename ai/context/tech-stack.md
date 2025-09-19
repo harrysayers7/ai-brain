@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.081815'
+modified: '2025-09-19T06:58:56.081819'
+ship_factor: 5
+subtype: context
+tags: []
+title: Tech Stack
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Complete tech stack overview including MCP servers, integrations, and tool configurations

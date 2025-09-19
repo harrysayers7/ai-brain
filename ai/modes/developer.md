@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.084549'
+modified: '2025-09-19T06:58:56.084551'
+ship_factor: 5
+subtype: modes
+tags: []
+title: Developer
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Behavioral mode definition for developer-focused AI interactions and code assistance

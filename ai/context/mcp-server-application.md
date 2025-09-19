@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.080872'
+modified: '2025-09-19T06:58:56.080878'
+ship_factor: 5
+subtype: context
+tags: []
+title: Mcp Server Application
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Guidelines for when and how to use different MCP servers in AI interactions

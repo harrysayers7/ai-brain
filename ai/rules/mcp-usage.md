@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.093762'
+modified: '2025-09-19T06:58:56.093765'
+ship_factor: 5
+subtype: rules
+tags: []
+title: Mcp Usage
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Behavioral rules for Model Context Protocol (MCP) server usage and error handling

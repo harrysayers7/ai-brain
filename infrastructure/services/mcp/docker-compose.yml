@@ -1,0 +1,350 @@
+---
+created: '2025-01-27T00:00:00.000000'
+modified: '2025-01-27T00:00:00.000000'
+ship_factor: 7
+subtype: containers
+tags: [mcp, docker, containers, ai]
+title: MCP Servers Docker Compose
+type: infrastructure
+version: 1
+---
+
+# MCP Servers Docker Compose Configuration
+
+## Development Environment
+```yaml
+version: '3.8'
+
+services:
+  filesystem-mcp:
+    image: [TO_BE_DEFINED]/filesystem-mcp:latest
+    container_name: filesystem-mcp
+    ports:
+      - "3001:3000"
+    environment:
+      - MCP_FS_ROOT=/workspace
+      - MCP_LOG_LEVEL=debug
+      - MCP_SERVER_PORT=3000
+    volumes:
+      - ./workspace:/workspace:ro
+      - ./logs:/app/logs
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  github-mcp:
+    image: [TO_BE_DEFINED]/github-mcp:latest
+    container_name: github-mcp
+    ports:
+      - "3002:3000"
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GITHUB_OWNER=${GITHUB_OWNER}
+      - MCP_LOG_LEVEL=info
+      - MCP_SERVER_PORT=3000
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  database-mcp:
+    image: [TO_BE_DEFINED]/database-mcp:latest
+    container_name: database-mcp
+    ports:
+      - "3003:3000"
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DB_TYPE=${DB_TYPE:-postgresql}
+      - MCP_LOG_LEVEL=info
+      - MCP_SERVER_PORT=3000
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  web-mcp:
+    image: [TO_BE_DEFINED]/web-mcp:latest
+    container_name: web-mcp
+    ports:
+      - "3004:3000"
+    environment:
+      - WEB_PROXY=${WEB_PROXY:-}
+      - USER_AGENT=${USER_AGENT:-MCP-Web-Server/1.0}
+      - MCP_LOG_LEVEL=info
+      - MCP_SERVER_PORT=3000
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - mcp-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mcp-proxy:
+    image: nginx:alpine
+    container_name: mcp-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/mcp-proxy.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - filesystem-mcp
+      - github-mcp
+      - database-mcp
+      - web-mcp
+    networks:
+      - mcp-network
+    restart: unless-stopped
+
+volumes:
+  mcp-logs:
+    driver: local
+
+networks:
+  mcp-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+```
+
+## Production Environment
+```yaml
+version: '3.8'
+
+services:
+  filesystem-mcp:
+    image: [TO_BE_DEFINED]/filesystem-mcp:${MCP_VERSION:-latest}
+    container_name: filesystem-mcp-prod
+    ports:
+      - "3001:3000"
+    environment:
+      - MCP_FS_ROOT=/workspace
+      - MCP_LOG_LEVEL=warn
+      - MCP_SERVER_PORT=3000
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN}
+    volumes:
+      - mcp-workspace:/workspace:ro
+      - mcp-logs:/app/logs
+    networks:
+      - mcp-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  github-mcp:
+    image: [TO_BE_DEFINED]/github-mcp:${MCP_VERSION:-latest}
+    container_name: github-mcp-prod
+    ports:
+      - "3002:3000"
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - GITHUB_OWNER=${GITHUB_OWNER}
+      - MCP_LOG_LEVEL=warn
+      - MCP_SERVER_PORT=3000
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN}
+      - RATE_LIMIT_REQUESTS_PER_MINUTE=${RATE_LIMIT:-60}
+    volumes:
+      - mcp-logs:/app/logs
+    networks:
+      - mcp-network
+    restart: always
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  database-mcp:
+    image: [TO_BE_DEFINED]/database-mcp:${MCP_VERSION:-latest}
+    container_name: database-mcp-prod
+    ports:
+      - "3003:3000"
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - DB_TYPE=${DB_TYPE:-postgresql}
+      - MCP_LOG_LEVEL=warn
+      - MCP_SERVER_PORT=3000
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN}
+      - DB_POOL_SIZE=${DB_POOL_SIZE:-10}
+    volumes:
+      - mcp-logs:/app/logs
+    networks:
+      - mcp-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  web-mcp:
+    image: [TO_BE_DEFINED]/web-mcp:${MCP_VERSION:-latest}
+    container_name: web-mcp-prod
+    ports:
+      - "3004:3000"
+    environment:
+      - WEB_PROXY=${WEB_PROXY:-}
+      - USER_AGENT=${USER_AGENT:-MCP-Web-Server/1.0}
+      - MCP_LOG_LEVEL=warn
+      - MCP_SERVER_PORT=3000
+      - MCP_AUTH_TOKEN=${MCP_AUTH_TOKEN}
+      - WEB_TIMEOUT=${WEB_TIMEOUT:-30}
+    volumes:
+      - mcp-logs:/app/logs
+    networks:
+      - mcp-network
+    restart: always
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  mcp-proxy:
+    image: nginx:alpine
+    container_name: mcp-proxy-prod
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./nginx/mcp-proxy-prod.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+      - mcp-logs:/var/log/nginx
+    depends_on:
+      - filesystem-mcp
+      - github-mcp
+      - database-mcp
+      - web-mcp
+    networks:
+      - mcp-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+  mcp-monitor:
+    image: prom/node-exporter:latest
+    container_name: mcp-monitor
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    networks:
+      - mcp-network
+    restart: always
+
+volumes:
+  mcp-logs:
+    driver: local
+  mcp-workspace:
+    driver: local
+
+networks:
+  mcp-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+```
+
+## Environment Variables
+```yaml
+# .env file for MCP servers
+MCP_VERSION=latest
+MCP_AUTH_TOKEN=STORED_IN_ENV_VARS
+
+# GitHub MCP
+GITHUB_TOKEN=STORED_IN_ENV_VARS
+GITHUB_OWNER=TO_BE_DEFINED
+
+# Database MCP
+DB_CONNECTION_STRING=STORED_IN_ENV_VARS
+DB_TYPE=postgresql
+DB_POOL_SIZE=10
+
+# Web MCP
+WEB_PROXY=
+USER_AGENT=MCP-Web-Server/1.0
+WEB_TIMEOUT=30
+
+# Rate Limiting
+RATE_LIMIT=60
+
+# SSL Configuration
+SSL_CERT_PATH=./ssl/cert.pem
+SSL_KEY_PATH=./ssl/key.pem
+```

@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.093188'
+modified: '2025-09-19T06:58:56.093190'
+ship_factor: 5
+subtype: rules
+tags: []
+title: Infrastructure Guidelines
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Behavioral rules for infrastructure management and deployment operations

@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.082902'
+modified: '2025-09-19T06:58:56.082907'
+ship_factor: 5
+subtype: context
+tags: []
+title: Infrastructure
+type: general
+version: 1
+---
+
 # Infrastructure Context
 
 This file provides a high-level overview of the AI Brain infrastructure setup. Detailed configurations are stored in the `infrastructure/` directory.

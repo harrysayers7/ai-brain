@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.085311'
+modified: '2025-09-19T06:58:56.085314'
+ship_factor: 5
+subtype: modes
+tags: []
+title: Accountant
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Behavioral mode definition for Australian financial education and analysis assistance

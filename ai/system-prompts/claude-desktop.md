@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.091956'
+modified: '2025-09-19T06:58:56.091958'
+ship_factor: 5
+subtype: system-prompts
+tags: []
+title: Claude Desktop
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Core system instructions for Claude Desktop integration and operations

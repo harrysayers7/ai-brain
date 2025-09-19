@@ -1,3 +1,14 @@
+---
+created: '2025-09-19T06:58:56.095060'
+modified: '2025-09-19T06:58:56.095677'
+ship_factor: 5
+subtype: templates
+tags: []
+title: Code Generation
+type: general
+version: 1
+---
+
 <!--
 HUMAN DESCRIPTION - AI SHOULD IGNORE THIS SECTION
 Purpose: Template for code generation workflows and development process guidance

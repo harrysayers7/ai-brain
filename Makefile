@@ -4,7 +4,7 @@
 # Include git operations
 include $(dir $(lastword $(MAKEFILE_LIST)))git.mk
 
-.PHONY: help install update validate test clean sync-index update-frontmatter check-deps format lint docs monitor-context watch-context update-system analyze-codebase integrated-update quick-update sync-context
+.PHONY: help install update validate test clean sync-index update-frontmatter check-deps format lint docs monitor-context watch-context update-system analyze-codebase integrated-update quick-update sync-context infra-scan infra-validate infra-backup infra-deploy infra-status infra-monitor
 
 # Default target
 .DEFAULT_GOAL := help
@@ -16,9 +16,11 @@ CONTEXT_MONITOR := scripts/context-monitor.py
 SYSTEM_UPDATER := scripts/system-md-updater.py
 INTEGRATED_UPDATER := scripts/integrated-updater.py
 CONTEXT_SYNC := scripts/context-sync.py
+INFRASTRUCTURE_SCANNER := scripts/infrastructure-scanner.py
 CHANGELOG := CHANGELOG.md
 INDEX_FILE := INDEX.md
 SYSTEM_FILE := SYSTEM.md
+INFRASTRUCTURE_OVERVIEW := infrastructure/INFRASTRUCTURE-OVERVIEW.md
 
 # Colors for output
 RED := \033[0;31m
@@ -167,6 +169,46 @@ watch: ## Watch for changes and auto-update
 		echo "$(YELLOW)Change detected, running update...$(NC)"; \
 		make update; \
 	done
+
+# Infrastructure targets
+infra-scan: ## Scan infrastructure and update overview
+	@echo "$(BLUE)Scanning infrastructure...$(NC)"
+	@$(PYTHON) $(INFRASTRUCTURE_SCANNER) --scan
+	@echo "$(GREEN)✅ Infrastructure overview updated$(NC)"
+
+infra-validate: ## Validate infrastructure configuration
+	@echo "$(BLUE)Validating infrastructure configuration...$(NC)"
+	@$(PYTHON) $(INFRASTRUCTURE_SCANNER) --report
+	@echo "$(GREEN)✅ Infrastructure validation complete$(NC)"
+
+infra-backup: ## Backup infrastructure configurations
+	@echo "$(BLUE)Creating infrastructure backup...$(NC)"
+	@mkdir -p backups/infrastructure
+	@tar -czf backups/infrastructure/infrastructure-$(shell date +%Y%m%d-%H%M%S).tar.gz infrastructure/
+	@echo "$(GREEN)✅ Infrastructure backup created$(NC)"
+
+infra-deploy: ## Deploy infrastructure changes
+	@echo "$(BLUE)Deploying infrastructure changes...$(NC)"
+	@echo "$(YELLOW)Note: This is a placeholder for actual deployment$(NC)"
+	@echo "$(GREEN)✅ Infrastructure deployment complete$(NC)"
+
+infra-status: ## Show infrastructure status
+	@echo "$(BLUE)Infrastructure Status$(NC)"
+	@echo "$(BLUE)==================$(NC)"
+	@if [ -f "$(INFRASTRUCTURE_OVERVIEW)" ]; then \
+		echo "Overview file: ✅ Present"; \
+		echo "Last updated: $$(grep 'Last Updated' $(INFRASTRUCTURE_OVERVIEW) | head -1)"; \
+	else \
+		echo "Overview file: ❌ Missing"; \
+	fi
+	@echo "Total environments: $$(find infrastructure/environments -type d -maxdepth 1 | wc -l)"
+	@echo "Total services: $$(find infrastructure/services -type d -maxdepth 1 | wc -l)"
+	@echo "Total config files: $$(find infrastructure -name '*.md' | wc -l)"
+
+infra-monitor: ## Monitor infrastructure health
+	@echo "$(BLUE)Monitoring infrastructure health...$(NC)"
+	@echo "$(YELLOW)Note: This is a placeholder for actual monitoring$(NC)"
+	@echo "$(GREEN)✅ Infrastructure monitoring complete$(NC)"
 
 # Emergency targets
 emergency-reset: ## Reset to last known good state (use with caution)

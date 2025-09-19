@@ -1,26 +1,26 @@
 {
   "infrastructure": {
-    "hash": "6693e656ccdffe1ac9ce3b488c30faab",
+    "hash": "b0b384b7384f78f83036dc4739a82d10",
     "metadata": {
-      "title": "",
-      "modified": "",
+      "title": "Infrastructure",
+      "modified": "2025-09-19T06:58:56.082907",
       "version": 1,
       "ship_factor": 5,
-      "size": 2576,
-      "lines": 88
+      "size": 2107,
+      "lines": 66
     },
-    "last_checked": "2025-09-18T19:22:10.490341"
+    "last_checked": "2025-09-19T09:52:05.073696"
   },
   "tech-stack": {
-    "hash": "8757977f32846ab9a6e5e8adb828494b",
+    "hash": "7fdb9af01b02d7e73ec7ec5b7a697ee2",
     "metadata": {
-      "title": "",
-      "modified": "",
+      "title": "Tech Stack",
+      "modified": "2025-09-19T06:58:56.081819",
       "version": 1,
       "ship_factor": 5,
-      "size": 3210,
-      "lines": 92
+      "size": 3211,
+      "lines": 82
     },
-    "last_checked": "2025-09-18T19:22:10.490459"
+    "last_checked": "2025-09-19T09:52:05.074140"
   }
 }
