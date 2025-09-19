@@ -1,9 +1,13 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.079973'
 ship_factor: 8
 subtype: security
-tags: [ssh, keys, security, access]
+tags:
+- ssh
+- keys
+- security
+- access
 title: SSH Keys Configuration
 type: infrastructure
 version: 1

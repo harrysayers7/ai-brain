@@ -1,9 +1,11 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.106480'
 ship_factor: 7
 subtype: server
-tags: [staging, server]
+tags:
+- staging
+- server
 title: Staging Server
 type: infrastructure
 version: 1

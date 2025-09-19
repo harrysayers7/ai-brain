@@ -1,9 +1,13 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.076405'
 ship_factor: 10
 subtype: infrastructure
-tags: [infrastructure, overview, master, auto-generated]
+tags:
+- infrastructure
+- overview
+- master
+- auto-generated
 title: Infrastructure Overview
 type: infrastructure
 version: 1

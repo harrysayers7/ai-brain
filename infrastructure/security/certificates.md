@@ -1,9 +1,13 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.078719'
 ship_factor: 8
 subtype: security
-tags: [ssl, tls, certificates, security]
+tags:
+- ssl
+- tls
+- certificates
+- security
 title: SSL/TLS Certificates
 type: infrastructure
 version: 1

@@ -2,13 +2,14 @@
 
 You have access to a knowledge base organized as markdown files. This document defines how to navigate and use this system.
 
-*Last updated: 2025-09-19 06:58:56*
+*Last updated: 2025-09-19 21:15:49*
 
 ## Structure Convention
 
 - All files are markdown with YAML frontmatter
 - Paths indicate type and purpose:
   - `tools/` = ## Purpose
+  - `archive/` = Contains archive-related files
   - `utils/` = Utility functions and helpers
   - `docs/` = This directory contains all documentation and guides for the AI Brain system.
   - `knowledge/` = This directory contains all accumulated knowledge, decisions, and learnings.
@@ -114,12 +115,12 @@ references:
 - Use plural for folder names: `decisions` not `decision`
 
 ### Current Patterns
-- **kebab-case**: 38 files
-- **structured**: 36 files
-- **frontmatter**: 63 files
-- **UPPERCASE**: 26 files
-- **code_blocks**: 31 files
-- **lowercase**: 19 files
+- **kebab-case**: 44 files
+- **frontmatter**: 92 files
+- **structured**: 41 files
+- **UPPERCASE**: 28 files
+- **code_blocks**: 48 files
+- **lowercase**: 31 files
 
 ## Content Guidelines
 
@@ -164,6 +165,7 @@ references:
 - **scripts/context-sync.py**: Context Synchronization
 - **scripts/context-notifier.py**: Context File Notifier
 - **scripts/context-monitor.py**: Context File Monitor
+- **scripts/infrastructure-scanner.py**: Infrastructure Scanner
 
 ### Maintenance Commands
 - `help: Show this help message`
@@ -182,8 +184,12 @@ references:
 - `.context-notifier-config.json`
 - `.context-sync-state.json`
 - `Makefile`
-- `infrastructure/local/docker-compose.yml`
-- `infrastructure/local/docker-compose.yml`
+- `archive/original-structure/docker-compose.yml`
+- `archive/original-structure/docker-compose.yml`
+- `infrastructure/containers/docker-compose.yml`
+- `infrastructure/containers/docker-compose.yml`
+- `infrastructure/environments/local/docker-compose.yml`
+- `infrastructure/environments/local/docker-compose.yml`
 
 ## Maintenance Tasks
 

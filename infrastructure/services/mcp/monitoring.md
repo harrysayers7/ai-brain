@@ -1,9 +1,13 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.090687'
 ship_factor: 6
 subtype: monitoring
-tags: [mcp, monitoring, observability, ai]
+tags:
+- mcp
+- monitoring
+- observability
+- ai
 title: MCP Servers Monitoring
 type: infrastructure
 version: 1

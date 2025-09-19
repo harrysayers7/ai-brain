@@ -1,9 +1,12 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.094568'
 ship_factor: 6
 subtype: cloud
-tags: [aws, cloud, infrastructure]
+tags:
+- aws
+- cloud
+- infrastructure
 title: AWS Configuration
 type: infrastructure
 version: 1

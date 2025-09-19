@@ -1,9 +1,12 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.080713'
 ship_factor: 6
 subtype: networking
-tags: [ports, networking, services]
+tags:
+- ports
+- networking
+- services
 title: Network Ports Configuration
 type: infrastructure
 version: 1

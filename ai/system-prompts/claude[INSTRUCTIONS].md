@@ -1,6 +1,6 @@
 ---
 created: '2025-09-19T06:58:56.091414'
-modified: '2025-09-19T06:58:56.091419'
+modified: '2025-09-19T21:15:49.160744'
 ship_factor: 5
 subtype: system-prompts
 tags: []

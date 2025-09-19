@@ -1,9 +1,13 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.089147'
 ship_factor: 7
 subtype: mcp
-tags: [mcp, servers, infrastructure, ai]
+tags:
+- mcp
+- servers
+- infrastructure
+- ai
 title: MCP Servers Configuration
 type: infrastructure
 version: 1

@@ -1,9 +1,12 @@
 ---
 created: '2025-01-27T00:00:00.000000'
-modified: '2025-01-27T00:00:00.000000'
+modified: '2025-09-19T21:15:49.087782'
 ship_factor: 6
 subtype: database
-tags: [postgresql, database, sql]
+tags:
+- postgresql
+- database
+- sql
 title: PostgreSQL Configuration
 type: infrastructure
 version: 1

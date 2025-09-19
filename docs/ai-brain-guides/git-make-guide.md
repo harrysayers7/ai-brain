@@ -1,6 +1,6 @@
 ---
 created: '2025-09-17T17:33:23.122270'
-modified: '2025-09-19T06:58:56.096429'
+modified: '2025-09-19T21:15:49.165981'
 ship_factor: 5
 subtype: ai-brain-guides
 tags: []

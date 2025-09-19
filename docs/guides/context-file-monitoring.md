@@ -1,6 +1,6 @@
 ---
 created: '2025-09-17T16:30:00.000000'
-modified: '2025-09-19T06:58:56.097781'
+modified: '2025-09-19T21:15:49.171191'
 ship_factor: 9
 subtype: guide
 tags:

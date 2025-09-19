@@ -1,12 +1,12 @@
 ---
 created: '2025-09-19T06:58:56.082902'
-modified: '2025-09-19T06:58:56.082907'
+modified: '2025-09-19T21:15:49.311138'
 ship_factor: 5
 subtype: context
 tags: []
 title: Infrastructure
 type: general
-version: 1
+version: 2
 ---
 
 # Infrastructure Context
@@ -21,18 +21,6 @@ This file provides a high-level overview of the AI Brain infrastructure setup. D
 - **Virtualization**: KVM
 - **Access**: SSH with key authentication
 
-## Running Services
-
-### Containerized Applications
-- **n8n**: Workflow automation (Port 5678)
-- **Supabase**: Database and backend services (Port 3000)
-- **Other services**: Additional containerized applications
-
-### Web Server
-- **Preferred**: Caddy (reverse proxy)
-- **Alternative**: Nginx
-- **Ports**: 80 (HTTP), 443 (HTTPS), 22 (SSH)
-
 ## Database
 
 - **Primary**: Supabase
@@ -45,12 +33,17 @@ This file provides a high-level overview of the AI Brain infrastructure setup. D
 ```
 infrastructure/
 ├── .DS_Store    # Configuration file
+├── INFRASTRUCTURE-OVERVIEW.md    # Documentation
 ├── README.md    # Documentation
+├── containers/                   # containers configurations
 ├── databases/                   # Database configurations
 ├── docker/                   # Docker configurations
-├── local/                   # Local machine setup and configurations.
+├── environments/                   # environments configurations
+├── local/                   # Local development tools
 ├── networking/                   # Network configurations
+├── security/                   # security configurations
 ├── servers/                   # Server configurations
+├── services/                   # services configurations
 ```
 
 ## Security
